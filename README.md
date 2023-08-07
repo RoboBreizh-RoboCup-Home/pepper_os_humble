@@ -28,7 +28,7 @@ For clarity and simplification, the documentation assumes that the variable is s
 
 ## Release 
 
-The compressed environement can be downloaded here [here](https://mycore.core-cloud.net/index.php/s/oqqD1khgUeuQCmR) (4.4GB). From there go to [Installation on pepper](#installation-on-pepper) 
+The compressed environement can be downloaded here [here](https://mycore.core-cloud.net/index.php/s/oqqD1khgUeuQCmR) (password: IAMNotTouchingThatPC). From there go to [Installation on pepper](#installation-on-pepper) 
 
 ## Generate
 
