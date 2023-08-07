@@ -1,0 +1,7 @@
+*.tar
+*.tar.gz
+*.tar.lzma
+
+.gitconfig
+.my-credentials
+.git-credentials

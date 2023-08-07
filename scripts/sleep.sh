@@ -1,0 +1,1 @@
+qicli call ALMotion.rest
