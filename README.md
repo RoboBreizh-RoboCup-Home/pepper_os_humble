@@ -67,7 +67,7 @@ $ ssh nao@$PEPPER_IP
 $ df -t ext3
 ```
 
-The arhice requires ~19.5GB to be copied and uncompressed.
+The archive requires ~19.5GB to be copied and uncompressed.
 
 If there isn't enough space, remove the prior pepper_os implementations or delete unnecessary files.
 
