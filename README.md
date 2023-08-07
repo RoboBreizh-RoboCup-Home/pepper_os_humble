@@ -72,13 +72,13 @@ If there isn't enough space, remove the prior pepper_os implementations or delet
 
 For example:
 ```bash
-rm -rf gentoo asio-1.28.0 ros2_humble catkin_ros2 pepper_os.tar.lzma
+rm -rf gentoo asio-1.28.0 ros2_humble catkin_ros2 pepper_os_humble.tar.lzma
 ```
 
 Once there is enough space available, the archive can be copied and uncompressed safely. 
 
 ```bash
-$ scp pepper_os.tar.lzma nao@$PEPPER_IP:/home/nao/
+$ scp pepper_os_humble.tar.lzma nao@$PEPPER_IP:/home/nao/
 $ ssh nao@$PEPPER_IP
 $ tar --lzma -xvf ./pepper_os_humble.tar.lzma
 $ rm pepper_os_humble.tar.lzma
