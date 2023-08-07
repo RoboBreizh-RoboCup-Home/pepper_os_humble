@@ -5,7 +5,7 @@ Docker with ROS2 Humble and naoqi_driver2 for Pepper 2.5.
 - [pepper\_os\_humble](#pepper_os_humble)
   - [Recommendation](#recommendation)
   - [Release](#release)
-  - [Generate](#generate)
+  - [Build the environment](#build-the-environment)
   - [Compress to lzma](#compress-to-lzma)
   - [Installation on pepper](#installation-on-pepper)
   - [Test ROS2](#test-ros2)
@@ -28,13 +28,14 @@ For clarity and simplification, the documentation assumes that the variable is s
 
 ## Release 
 
-The compressed environement can be downloaded here [here](https://mycore.core-cloud.net/index.php/s/oqqD1khgUeuQCmR) (password: IAMNotTouchingThatPC). From there go to [Installation on pepper](#installation-on-pepper) 
+A plug-and-play environement is available here [here](https://mycore.core-cloud.net/index.php/s/oqqD1khgUeuQCmR) (password: IAMNotTouchingThatPC). From there go to [Installation on pepper](#installation-on-pepper) 
 
-## Generate
+## Build the environment
 
-The Dockerfile requires pepper_os_11.0.4.tar.lzma in the same directory. 
+The environment can be built using the Dockerfile. This requires pepper_os_11.0.4.tar.lzma in the same directory. 
 
 ```bash
+#Download pepper_os_11.0.4.tar.lzma
 $ wget --no-check-certificate -O pepper_os_11.0.4.tar.lzma "https://mycore.core-cloud.net/index.php/s/Rh4EbGqxc05W3ap/download?path=%2F&files=pepper_os_11.0.4.tar.lzma"
 $ docker build -f Dockerfile -t pepper_os_humble .
 ```
