@@ -1,0 +1,12 @@
+angles
+depthimage_to_laserscan
+pcl_conversions
+teleop_twist_keyboard
+image_pipeline
+image_transport_plugins
+laser_filters
+perception_pcl
+vision_opencv
+self_test
+diagnostics
+image_geometry

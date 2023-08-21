@@ -36,8 +36,7 @@ The environment can be built using the Dockerfile. This requires pepper_os_11.0.
 
 ```bash
 #Download pepper_os_11.0.4.tar.lzma
-$ wget --no-check-certificate -O pepper_os_11.0.4.tar.lzma "https://mycore.core-cloud.net/index.php/s/Rh4EbGqxc05W3ap/download?path=%2F&files=pepper_os_11.0.4.tar.lzma"
-$ docker build -f Dockerfile -t pepper_os_humble .
+$ docker run --rm --entrypoint /tmp/gentoo/executeonprefix neaum/ros2_humble_desktop_simple "tar -c --lzma -f - -C /tmp gentoo ros2_humble" > ./gentoo_prefix_ros2.tar.lzma; ls -lah .
 ```
 
 Alternatively, the first command is present but commented at the top of the Dockerfile. Uncommenting it is possible but not advised. Downloading it is this way is considerably slower this way and may take 2~3 hours.

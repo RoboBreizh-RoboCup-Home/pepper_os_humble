@@ -66,7 +66,7 @@ export LD_LIBRARY_PATH=/home/nao/.local/bin/libqi/lib:/home/nao/.local/bin/usr/l
 #Source ROS2
 function humble(){
 	. ~/ros2_humble/install/local_setup.bash
-	. ~/catkin_ros2/install/local_setup.bash #naoqi_driver
+	# . ~/catkin_ros2/install/local_setup.bash #naoqi_driver
 }
 
 humble

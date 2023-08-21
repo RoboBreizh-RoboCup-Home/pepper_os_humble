@@ -1,0 +1,69 @@
+repositories:
+  angles:
+    type: git
+    url: https://github.com/ros2-gbp/angles-release.git
+    version: release/humble/angles/1.15.0-1
+  depthimage_to_laserscan:
+    type: git
+    url: https://github.com/ros2-gbp/depthimage_to_laserscan-release.git
+    version: release/humble/depthimage_to_laserscan/2.5.1-1
+  diagnostics/diagnostic_aggregator:
+    type: git
+    url: https://github.com/ros2-gbp/diagnostics-release.git
+    version: release/humble/diagnostic_aggregator/3.1.2-1
+  diagnostics/diagnostic_common_diagnostics:
+    type: git
+    url: https://github.com/ros2-gbp/diagnostics-release.git
+    version: release/humble/diagnostic_common_diagnostics/3.1.2-1
+  diagnostics/diagnostic_updater:
+    type: git
+    url: https://github.com/ros2-gbp/diagnostics-release.git
+    version: release/humble/diagnostic_updater/3.1.2-1
+  diagnostics/diagnostics:
+    type: git
+    url: https://github.com/ros2-gbp/diagnostics-release.git
+    version: release/humble/diagnostics/3.1.2-1
+  diagnostics/self_test:
+    type: git
+    url: https://github.com/ros2-gbp/diagnostics-release.git
+    version: release/humble/self_test/3.1.2-1
+  image_pipeline/image_pipeline:
+    type: git
+    url: https://github.com/ros2-gbp/image_pipeline-release.git
+    version: release/humble/image_pipeline/3.0.0-1
+  image_transport_plugins/image_transport_plugins:
+    type: git
+    url: https://github.com/ros2-gbp/image_transport_plugins-release.git
+    version: release/humble/image_transport_plugins/2.5.0-2
+  joystick_drivers/joy:
+    type: git
+    url: https://github.com/ros2-gbp/joystick_drivers-release.git
+    version: release/humble/joy/3.1.0-3
+  laser_filters:
+    type: git
+    url: https://github.com/ros2-gbp/laser_filters-release.git
+    version: release/humble/laser_filters/2.0.7-1
+  perception_pcl/pcl_conversions:
+    type: git
+    url: https://github.com/ros2-gbp/perception_pcl-release.git
+    version: release/humble/pcl_conversions/2.4.0-4
+  perception_pcl/perception_pcl:
+    type: git
+    url: https://github.com/ros2-gbp/perception_pcl-release.git
+    version: release/humble/perception_pcl/2.4.0-4
+  teleop_twist_joy:
+    type: git
+    url: https://github.com/ros2-gbp/teleop_twist_joy-release.git
+    version: release/humble/teleop_twist_joy/2.4.5-1
+  teleop_twist_keyboard:
+    type: git
+    url: https://github.com/ros2-gbp/teleop_twist_keyboard-release.git
+    version: release/humble/teleop_twist_keyboard/2.3.2-4
+  vision_opencv/vision_opencv:
+    type: git
+    url: https://github.com/ros2-gbp/vision_opencv-release.git
+    version: release/humble/vision_opencv/3.2.1-1
+  vision_opencv/image_geometry:
+    type: git
+    url: https://github.com/ros2-gbp/vision_opencv-release.git
+    version: release/humble/image_geometry/3.2.1-1
