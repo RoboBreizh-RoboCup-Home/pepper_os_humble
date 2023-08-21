@@ -244,7 +244,6 @@ USER nao
 
 SHELL ["/tmp/gentoo/executeonprefix"]
 
-RUN cd /home/nao && tar -cv --lzma -f /tmp/pepper_os.tar.lzma -C /home/nao gentoo -C  /home/nao ros2_humble -C /home/nao .bash_profile -C /home/nao -C /home/nao naoqi --remove-files --checkpoint=.100  --absolute-names || true
-
+RUN cd /home/nao && tar -cv --lzma -f /tmp/pepper_os_humble.tar.lzma -C /home/nao gentoo -C  /home/nao ros2_humble -C /home/nao .bash_profile -C /home/nao -C /home/nao naoqi --remove-files --checkpoint=.100  --absolute-names || true
 
 ENTRYPOINT ["/bin/bash"]
