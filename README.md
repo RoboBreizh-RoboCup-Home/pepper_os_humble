@@ -48,15 +48,13 @@ Compressing the environment to lzma is necessary as Pepper has limited resources
 
 ```bash
 $ docker run -it pepper_os_humble:latest
-$ cd /home/nao; tar -c --lzma -f /tmp/pepper_os_humble.tar.lzma -C /home/nao gentoo -C  /home/nao asio-1.28.0 -C /home/nao ros2_humble -C /home/nao .local -C /home/nao .bash_profile -C /home/nao naoqi -C /home/nao catkin_ros2 || true
 
 #Outside docker in another terminal
-$ docker cp CONTAINER_ID:/tmp/pepper_os_humble.tar.lzma ./
+$ docker cp CONTAINER_ID:/tmp/pepper_os_humble.tar.lzma ./pepper_os_humble_32b.tar.lzma 
 ```
 
 CONTAINER_ID being the ID of the running container (nao@CONTAINER_ID)
 
-Compressing the environement takes about an hour and a half.
 
 ## Installation on pepper
 
@@ -73,16 +71,16 @@ If there isn't enough space, remove the prior pepper_os implementations or delet
 
 For example:
 ```bash
-rm -rf gentoo asio-1.28.0 ros2_humble catkin_ros2 pepper_os_humble.tar.lzma
+rm -rf ros2_humble catkin_ros2 pepper_os_humble_32b.tar.lzma
 ```
 
 Once there is enough space available, the archive can be copied and uncompressed safely. 
 
 ```bash
-$ scp pepper_os_humble.tar.lzma nao@$PEPPER_IP:/home/nao/
+$ scp pepper_os_humble_32b.tar.lzma nao@$PEPPER_IP:/home/nao/
 $ ssh nao@$PEPPER_IP
-$ tar --lzma -xvf ./pepper_os_humble.tar.lzma
-$ rm pepper_os_humble.tar.lzma
+$ tar --lzma -xvf ./pepper_os_humble_32b.tar.lzma
+$ rm pepper_os_humble_32b.tar.lzma
 ```
 
 ## Test ROS2

@@ -140,10 +140,9 @@ RUN rm -rf /opt
 RUN du -sh /tmp/gentoo
 USER nao
 
-SHELL ["/tmp/gentoo/executeonprefix"]
-
 #Compress archive to lzma format.
 #WARNING: This operation takes about an hour and a half.
-RUN cd /home/nao && tar -c --lzma -f /tmp/pepper_os.tar.lzma -C /home/nao gentoo -C  /home/nao ros2_humble -C /home/nao .local -C /home/nao .bash_profile -C /home/nao naoqi -C /home/nao catkin_ros2 || true
+#cd /home/nao; tar -c --lzma -f /tmp/pepper_os.tar.lzma -C /home/nao gentoo -C  /home/nao asio-1.28.0 -C /home/nao ros2_humble -C /home/nao .local -C /home/nao .bash_profile -C /home/nao naoqi -C /home/nao catkin_ros2 || true
 
-ENTRYPOINT ["/bin/bash"]
+SHELL ["/tmp/gentoo/executeonprefix"]
+CMD ["/home/nao/gentoo/startprefix"]
