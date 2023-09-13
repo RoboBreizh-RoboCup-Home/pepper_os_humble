@@ -211,6 +211,19 @@ RUN cd /home/nao/ros2_humble && \
 #     cd /tmp/ros2_humble && \
 #      colcon build --symlink-install --packages-select naoqi_driver naoqi_libqi naoqi_libqicore naoqi_bridge_msgs
 
+
+# Build ncnn
+RUN git clone https://github.com/Tencent/ncnn.git && \
+    cd ncnn && \
+    mkdir -p build && cd build && \
+    cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/tmp/gentoo/usr -DNCNN_BUILD_EXAMPLES=ON .. && \
+    make -j12 && \
+    make install
+
+RUN cd ncnn/build && \
+    cd ../benchmark && \
+    ../build/benchmark/benchncnn 10 $(nproc) 0 -1
+
 # Clean up
 RUN rm -rf /home/nao/.local/
 
