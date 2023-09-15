@@ -32,9 +32,10 @@ A plug-and-play environement is available here [here](https://mycore.core-cloud.
 
 ## Build the environment
 
-The environment can be built using the Dockerfile.base_build and Dockerfile. First you need to pull the latest [gentoo_on_tmp.tar.lzma archive](https://github.com/awesomebytes/gentoo_prefix_ci/releases/download/release%2F2021-04-27T19at01plus00at00/gentoo_on_tmp-amd64_2021-04-27T19at01plus00at00.tar.lzma) and put it in this repo. Then, you can build the first Dockerfile that contains basic requirement and OS settings for the gentoo prefix:
+The environment can be built using the Dockerfile.base_build and Dockerfile. You can build the first Dockerfile that contains basic requirement and OS settings for the gentoo prefix using the following commands:
 
 ```bash
+$ docker run --cpus 12 --entrypoint /tmp/gentoo/executeonprefix  awesomebytes/gentoo_prefix_boostrapped "tar -c --lzma -f - -C /tmp gentoo" > ./gentoo_on_tmp.tar.lzma
 $ docker build --progress=plain -f Dockerfile.base_build -t ros2_humble_base .
 $ docker run --rm --entrypoint /tmp/gentoo/executeonprefix ros2_humble_base "tar -c --lzma -f - -C /tmp gentoo" > ./gentoo_prefix_base.tar.lzma; ls -lah .
 ```

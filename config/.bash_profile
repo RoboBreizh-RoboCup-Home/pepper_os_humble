@@ -42,3 +42,6 @@ function humble(){
 }
 
 humble
+
+# for the confusion between liqi.so in naoqi_libqi and libqi_python when sourcing ROS2
+export LD_LIBRARY_PATH=/tmp/gentoo/usr/lib/python3.10/site-packages/qi:$LD_LIBRARY_PATH
