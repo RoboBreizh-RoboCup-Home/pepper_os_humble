@@ -199,18 +199,23 @@ RUN cd /home/nao/ros2_humble && \
     demo_nodes_cpp \
     demo_nodes_py 
 
-# TODO: fix the build of the following packages
-# RUN . /tmp/ros2_humble/install/local_setup.bash && \
-#   cd /tmp/ros2_humble/src && \
-#   git clone https://github.com/RoboBreizh-RoboCup-Home/naoqi_driver2.git &&\
-#   git clone --branch debian/galactic/naoqi_libqi https://github.com/ros-naoqi/libqi-release &&\
-#   git clone --branch debian/galactic/naoqi_libqicore https://github.com/ros-naoqi/libqicore-release &&\             
-#   git clone https://github.com/ros-naoqi/naoqi_bridge_msgs2 
+# We re-build gtest because we need a version that works with c++11 rather than c++14 for naoqi_libqi
+RUN cd .local && \
+    git clone https://github.com/google/googletest.git -b release-1.12.1 && \
+    cd googletest && \
+    mkdir build && \
+    cd build && \
+    cmake .. -DBUILD_GMOCK=OFF -DCMAKE_INSTALL_PREFIX=/tmp/gentoo/usr && \
+    make -j12 && \
+    make install
 
-# RUN . /tmp/ros2_humble/install/local_setup.bash && \
-#     cd /tmp/ros2_humble && \
-#      colcon build --symlink-install --packages-select naoqi_driver naoqi_libqi naoqi_libqicore naoqi_bridge_msgs
-
+# Building of naoqi_driver and dependencies
+RUN cd ros2_humble/src && \
+    git clone https://github.com/victorpaleologue/naoqi_driver2.git -b fix_humble && \
+    cd /home/nao/ros2_humble && \
+    vcs import src < /home/nao/ros2_humble/src/naoqi_driver2/dependencies.repos && \
+    vcs pull && \
+    colcon build --cmake-args -DBUILD_TESTING=OFF --symlink-install --packages-select naoqi_bridge_msgs naoqi_libqi naoqi_libqicore naoqi_driver
 
 # Build ncnn
 RUN git clone https://github.com/Tencent/ncnn.git && \
@@ -220,6 +225,7 @@ RUN git clone https://github.com/Tencent/ncnn.git && \
     make -j12 && \
     make install
 
+# Testing if ncnn works
 RUN cd ncnn/build && \
     cd ../benchmark && \
     ../build/benchmark/benchncnn 10 $(nproc) 0 -1
