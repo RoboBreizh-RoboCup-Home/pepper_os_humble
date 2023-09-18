@@ -5,9 +5,9 @@ WORKDIR /home/nao
 RUN cat /proc/cpuinfo; cat /proc/meminfo; df -h
 
 #Loading the ros2 archive
-COPY gentoo_on_tmp.tar.lzma  ./gentoo_on_tmp.tar.lzma
-RUN tar --lzma -xvf gentoo_on_tmp.tar.lzma &&\
-    rm gentoo_on_tmp.tar.lzma
+COPY gentoo_prefix_base.tar.lzma  ./gentoo_prefix_base.tar.lzma
+RUN tar --lzma -xvf gentoo_prefix_base.tar.lzma &&\
+    rm gentoo_prefix_base.tar.lzma
 
 # Fix permissions of tmp
 USER root
@@ -211,7 +211,7 @@ RUN cd .local && \
 
 # Building of naoqi_driver and dependencies
 RUN cd ros2_humble/src && \
-    git clone https://github.com/victorpaleologue/naoqi_driver2.git -b fix_humble && \
+    git clone https://github.com/Maelic/naoqi_driver2.git -b fix_humble && \
     cd /home/nao/ros2_humble && \
     vcs import src < /home/nao/ros2_humble/src/naoqi_driver2/dependencies.repos && \
     vcs pull && \
@@ -226,9 +226,9 @@ RUN git clone https://github.com/Tencent/ncnn.git && \
     make install
 
 # Testing if ncnn works
-RUN cd ncnn/build && \
-    cd ../benchmark && \
-    ../build/benchmark/benchncnn 10 $(nproc) 0 -1
+# RUN cd ncnn/build && \
+#     cd ../benchmark && \
+#     ../build/benchmark/benchncnn 10 $(nproc) 0 -1
 
 # Clean up
 RUN rm -rf /home/nao/.local/

@@ -28,7 +28,7 @@ For clarity and simplification, the documentation assumes that the variable is s
 
 ## Release 
 
-A plug-and-play environement is available here [here](https://mycore.core-cloud.net/index.php/s/oqqD1khgUeuQCmR) (password: IAMNotTouchingThatPC). From there go to [Installation on pepper](#installation-on-pepper) 
+A plug-and-play environment is available here [here](https://mycore.core-cloud.net/index.php/s/oqqD1khgUeuQCmR) (password: IAMNotTouchingThatPC). From there go to [Installation on pepper](#installation-on-pepper) 
 
 ## Build the environment
 
@@ -42,7 +42,7 @@ $ docker run --rm --entrypoint /tmp/gentoo/executeonprefix ros2_humble_base "tar
 
 To build the second (and most important) Dockerfile you need to execute:
 ```bash
-$ docker build --progress=plain -f Dockerfile -t pepepr_os_ros2_humble .
+$ docker build --progress=plain -f Dockerfile -t pepper_os_humble .
 ```
 And then retrieve the compressed archive as follows:
 ```bash
