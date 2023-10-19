@@ -1,0 +1,558 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:211 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Linux - 5.15.0-85-generic - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /tmp/gentoo/usr/bin/cc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is GNU, found in:
+        /data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/3.27.5/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /tmp/gentoo/usr/bin/c++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is GNU, found in:
+        /data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/3.27.5/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-tHXQkE"
+      binary: "/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-tHXQkE"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-tHXQkE'
+        
+        Run Build Command(s): /data/home/nao/gentoo/usr/bin/cmake -E env VERBOSE=1 /tmp/gentoo/usr/bin/gmake -f Makefile cmTC_cd7fd/fast
+        /tmp/gentoo/usr/bin/gmake  -f CMakeFiles/cmTC_cd7fd.dir/build.make CMakeFiles/cmTC_cd7fd.dir/build
+        gmake[1]: Entering directory '/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-tHXQkE'
+        Building C object CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o
+        /tmp/gentoo/usr/bin/cc   -v -o CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o -c /data/home/nao/gentoo/usr/share/cmake/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        COLLECT_GCC=/tmp/gentoo/usr/bin/cc
+        Target: x86_64-pc-linux-gnu
+        Configured with: /data/home/nao/gentoo/var/tmp/portage/sys-devel/gcc-12.2.1_p20230428-r1/work/gcc-12-20230428/configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --prefix=/tmp/gentoo/usr --bindir=/tmp/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12 --includedir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include --datadir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12 --mandir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/man --infodir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/info --with-gxx-include-dir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12 --disable-silent-rules --disable-dependency-tracking --with-python-dir=/share/gcc-data/x86_64-pc-linux-gnu/12/python --enable-languages=c,c++,fortran --enable-obsolete --enable-secureplt --disable-werror --with-system-zlib --enable-nls --without-included-gettext --disable-libunwind-exceptions --enable-checking=release --with-bugurl=https://bugs.gentoo.org/ --with-pkgversion='Gentoo 12.2.1_p20230428-r1 p2' --with-gcc-major-version-only --enable-libstdcxx-time --enable-lto --disable-libstdcxx-pch --enable-shared --enable-threads=posix --with-sysroot=/tmp/gentoo --with-build-sysroot=/tmp/gentoo --enable-__cxa_atexit --enable-clocale=gnu --disable-multilib --with-multilib-list=m64 --disable-fixed-point --enable-targets=all --enable-libgomp --disable-libssp --disable-libada --disable-cet --disable-systemtap --disable-valgrind-annotations --disable-vtable-verify --disable-libvtv --without-zstd --without-isl --enable-default-pie --enable-default-ssp
+        Thread model: posix
+        Supported LTO compression algorithms: zlib
+        gcc version 12.2.1 20230428 (Gentoo 12.2.1_p20230428-r1 p2) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_cd7fd.dir/'
+         /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/cc1 -quiet -v -iprefix /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/ /data/home/nao/gentoo/usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_cd7fd.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o /tmp/ccuKTPVc.s
+        GNU C17 (Gentoo 12.2.1_p20230428-r1 p2) version 12.2.1 20230428 (x86_64-pc-linux-gnu)
+        	compiled by GNU C version 12.2.1 20230428, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version none
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/include"
+        ignoring duplicate directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/12/include"
+        ignoring nonexistent directory "/tmp/gentoo/usr/local/include"
+        ignoring duplicate directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/12/include-fixed"
+        ignoring nonexistent directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include
+         /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include-fixed
+         /tmp/gentoo/usr/include
+        End of search list.
+        GNU C17 (Gentoo 12.2.1_p20230428-r1 p2) version 12.2.1 20230428 (x86_64-pc-linux-gnu)
+        	compiled by GNU C version 12.2.1 20230428, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version none
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: c8d76514515a8b162f9c0601576437cf
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_cd7fd.dir/'
+         /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/bin/as -v --64 -o CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o /tmp/ccuKTPVc.s
+        GNU assembler version 2.39.0 (x86_64-pc-linux-gnu) using BFD version (Gentoo 2.39 p6) 2.39.0
+        COMPILER_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/bin/
+        LIBRARY_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/:/tmp/gentoo/lib/../lib64/:/tmp/gentoo/usr/lib/../lib64/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../:/tmp/gentoo/lib/:/tmp/gentoo/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.'
+        Linking C executable cmTC_cd7fd
+        /data/home/nao/gentoo/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cd7fd.dir/link.txt --verbose=1
+        /tmp/gentoo/usr/bin/cc  -v CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o -o cmTC_cd7fd 
+        Using built-in specs.
+        COLLECT_GCC=/tmp/gentoo/usr/bin/cc
+        COLLECT_LTO_WRAPPER=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/lto-wrapper
+        Target: x86_64-pc-linux-gnu
+        Configured with: /data/home/nao/gentoo/var/tmp/portage/sys-devel/gcc-12.2.1_p20230428-r1/work/gcc-12-20230428/configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --prefix=/tmp/gentoo/usr --bindir=/tmp/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12 --includedir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include --datadir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12 --mandir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/man --infodir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/info --with-gxx-include-dir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12 --disable-silent-rules --disable-dependency-tracking --with-python-dir=/share/gcc-data/x86_64-pc-linux-gnu/12/python --enable-languages=c,c++,fortran --enable-obsolete --enable-secureplt --disable-werror --with-system-zlib --enable-nls --without-included-gettext --disable-libunwind-exceptions --enable-checking=release --with-bugurl=https://bugs.gentoo.org/ --with-pkgversion='Gentoo 12.2.1_p20230428-r1 p2' --with-gcc-major-version-only --enable-libstdcxx-time --enable-lto --disable-libstdcxx-pch --enable-shared --enable-threads=posix --with-sysroot=/tmp/gentoo --with-build-sysroot=/tmp/gentoo --enable-__cxa_atexit --enable-clocale=gnu --disable-multilib --with-multilib-list=m64 --disable-fixed-point --enable-targets=all --enable-libgomp --disable-libssp --disable-libada --disable-cet --disable-systemtap --disable-valgrind-annotations --disable-vtable-verify --disable-libvtv --without-zstd --without-isl --enable-default-pie --enable-default-ssp
+        Thread model: posix
+        Supported LTO compression algorithms: zlib
+        gcc version 12.2.1 20230428 (Gentoo 12.2.1_p20230428-r1 p2) 
+        COMPILER_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/bin/
+        LIBRARY_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/:/tmp/gentoo/lib/../lib64/:/tmp/gentoo/usr/lib/../lib64/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../:/tmp/gentoo/lib/:/tmp/gentoo/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_cd7fd' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_cd7fd.'
+         /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/collect2 -plugin /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/liblto_plugin.so -plugin-opt=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccQs2bVR.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/tmp/gentoo --eh-frame-hdr -m elf_x86_64 -dynamic-linker /tmp/gentoo/lib64/ld-linux-x86-64.so.2 -pie -o cmTC_cd7fd /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/Scrt1.o /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crti.o /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtbeginS.o -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12 -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64 -L/tmp/gentoo/lib/../lib64 -L/tmp/gentoo/usr/lib/../lib64 -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../.. -L/tmp/gentoo/lib -L/tmp/gentoo/usr/lib CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtendS.o /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_cd7fd' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_cd7fd.'
+        gmake[1]: Leaving directory '/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-tHXQkE'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include]
+          add: [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include-fixed]
+          add: [/tmp/gentoo/usr/include]
+        end of search list found
+        collapse include dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include] ==> [/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include]
+        collapse include dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include-fixed] ==> [/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include-fixed]
+        collapse include dir [/tmp/gentoo/usr/include] ==> [/tmp/gentoo/usr/include]
+        implicit include dirs: [/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include;/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include-fixed;/tmp/gentoo/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:152 (message)"
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: '/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-tHXQkE']
+        ignore line: []
+        ignore line: [Run Build Command(s): /data/home/nao/gentoo/usr/bin/cmake -E env VERBOSE=1 /tmp/gentoo/usr/bin/gmake -f Makefile cmTC_cd7fd/fast]
+        ignore line: [/tmp/gentoo/usr/bin/gmake  -f CMakeFiles/cmTC_cd7fd.dir/build.make CMakeFiles/cmTC_cd7fd.dir/build]
+        ignore line: [gmake[1]: Entering directory '/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-tHXQkE']
+        ignore line: [Building C object CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/tmp/gentoo/usr/bin/cc   -v -o CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o -c /data/home/nao/gentoo/usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/tmp/gentoo/usr/bin/cc]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: /data/home/nao/gentoo/var/tmp/portage/sys-devel/gcc-12.2.1_p20230428-r1/work/gcc-12-20230428/configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --prefix=/tmp/gentoo/usr --bindir=/tmp/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12 --includedir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include --datadir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12 --mandir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/man --infodir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/info --with-gxx-include-dir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12 --disable-silent-rules --disable-dependency-tracking --with-python-dir=/share/gcc-data/x86_64-pc-linux-gnu/12/python --enable-languages=c c++ fortran --enable-obsolete --enable-secureplt --disable-werror --with-system-zlib --enable-nls --without-included-gettext --disable-libunwind-exceptions --enable-checking=release --with-bugurl=https://bugs.gentoo.org/ --with-pkgversion='Gentoo 12.2.1_p20230428-r1 p2' --with-gcc-major-version-only --enable-libstdcxx-time --enable-lto --disable-libstdcxx-pch --enable-shared --enable-threads=posix --with-sysroot=/tmp/gentoo --with-build-sysroot=/tmp/gentoo --enable-__cxa_atexit --enable-clocale=gnu --disable-multilib --with-multilib-list=m64 --disable-fixed-point --enable-targets=all --enable-libgomp --disable-libssp --disable-libada --disable-cet --disable-systemtap --disable-valgrind-annotations --disable-vtable-verify --disable-libvtv --without-zstd --without-isl --enable-default-pie --enable-default-ssp]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib]
+        ignore line: [gcc version 12.2.1 20230428 (Gentoo 12.2.1_p20230428-r1 p2) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_cd7fd.dir/']
+        ignore line: [ /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/cc1 -quiet -v -iprefix /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/ /data/home/nao/gentoo/usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_cd7fd.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o /tmp/ccuKTPVc.s]
+        ignore line: [GNU C17 (Gentoo 12.2.1_p20230428-r1 p2) version 12.2.1 20230428 (x86_64-pc-linux-gnu)]
+        ignore line: [	compiled by GNU C version 12.2.1 20230428  GMP version 6.2.1  MPFR version 4.2.0  MPC version 1.3.1  isl version none]
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [ignoring duplicate directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/12/include"]
+        ignore line: [ignoring nonexistent directory "/tmp/gentoo/usr/local/include"]
+        ignore line: [ignoring duplicate directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/12/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include]
+        ignore line: [ /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include-fixed]
+        ignore line: [ /tmp/gentoo/usr/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C17 (Gentoo 12.2.1_p20230428-r1 p2) version 12.2.1 20230428 (x86_64-pc-linux-gnu)]
+        ignore line: [	compiled by GNU C version 12.2.1 20230428  GMP version 6.2.1  MPFR version 4.2.0  MPC version 1.3.1  isl version none]
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: c8d76514515a8b162f9c0601576437cf]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_cd7fd.dir/']
+        ignore line: [ /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/bin/as -v --64 -o CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o /tmp/ccuKTPVc.s]
+        ignore line: [GNU assembler version 2.39.0 (x86_64-pc-linux-gnu) using BFD version (Gentoo 2.39 p6) 2.39.0]
+        ignore line: [COMPILER_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/bin/]
+        ignore line: [LIBRARY_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/:/tmp/gentoo/lib/../lib64/:/tmp/gentoo/usr/lib/../lib64/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../:/tmp/gentoo/lib/:/tmp/gentoo/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_cd7fd]
+        ignore line: [/data/home/nao/gentoo/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cd7fd.dir/link.txt --verbose=1]
+        ignore line: [/tmp/gentoo/usr/bin/cc  -v CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o -o cmTC_cd7fd ]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/tmp/gentoo/usr/bin/cc]
+        ignore line: [COLLECT_LTO_WRAPPER=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/lto-wrapper]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: /data/home/nao/gentoo/var/tmp/portage/sys-devel/gcc-12.2.1_p20230428-r1/work/gcc-12-20230428/configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --prefix=/tmp/gentoo/usr --bindir=/tmp/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12 --includedir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include --datadir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12 --mandir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/man --infodir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/info --with-gxx-include-dir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12 --disable-silent-rules --disable-dependency-tracking --with-python-dir=/share/gcc-data/x86_64-pc-linux-gnu/12/python --enable-languages=c c++ fortran --enable-obsolete --enable-secureplt --disable-werror --with-system-zlib --enable-nls --without-included-gettext --disable-libunwind-exceptions --enable-checking=release --with-bugurl=https://bugs.gentoo.org/ --with-pkgversion='Gentoo 12.2.1_p20230428-r1 p2' --with-gcc-major-version-only --enable-libstdcxx-time --enable-lto --disable-libstdcxx-pch --enable-shared --enable-threads=posix --with-sysroot=/tmp/gentoo --with-build-sysroot=/tmp/gentoo --enable-__cxa_atexit --enable-clocale=gnu --disable-multilib --with-multilib-list=m64 --disable-fixed-point --enable-targets=all --enable-libgomp --disable-libssp --disable-libada --disable-cet --disable-systemtap --disable-valgrind-annotations --disable-vtable-verify --disable-libvtv --without-zstd --without-isl --enable-default-pie --enable-default-ssp]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib]
+        ignore line: [gcc version 12.2.1 20230428 (Gentoo 12.2.1_p20230428-r1 p2) ]
+        ignore line: [COMPILER_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/bin/]
+        ignore line: [LIBRARY_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/:/tmp/gentoo/lib/../lib64/:/tmp/gentoo/usr/lib/../lib64/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../:/tmp/gentoo/lib/:/tmp/gentoo/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_cd7fd' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_cd7fd.']
+        link line: [ /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/collect2 -plugin /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/liblto_plugin.so -plugin-opt=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccQs2bVR.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/tmp/gentoo --eh-frame-hdr -m elf_x86_64 -dynamic-linker /tmp/gentoo/lib64/ld-linux-x86-64.so.2 -pie -o cmTC_cd7fd /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/Scrt1.o /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crti.o /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtbeginS.o -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12 -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64 -L/tmp/gentoo/lib/../lib64 -L/tmp/gentoo/usr/lib/../lib64 -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../.. -L/tmp/gentoo/lib -L/tmp/gentoo/usr/lib CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtendS.o /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crtn.o]
+          arg [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccQs2bVR.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [--sysroot=/tmp/gentoo] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/tmp/gentoo/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_cd7fd] ==> ignore
+          arg [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/Scrt1.o] ==> obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/Scrt1.o]
+          arg [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crti.o] ==> obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crti.o]
+          arg [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtbeginS.o] ==> obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtbeginS.o]
+          arg [-L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12] ==> dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12]
+          arg [-L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc] ==> dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc]
+          arg [-L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64] ==> dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64]
+          arg [-L/tmp/gentoo/lib/../lib64] ==> dir [/tmp/gentoo/lib/../lib64]
+          arg [-L/tmp/gentoo/usr/lib/../lib64] ==> dir [/tmp/gentoo/usr/lib/../lib64]
+          arg [-L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib] ==> dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib]
+          arg [-L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../..] ==> dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../..]
+          arg [-L/tmp/gentoo/lib] ==> dir [/tmp/gentoo/lib]
+          arg [-L/tmp/gentoo/usr/lib] ==> dir [/tmp/gentoo/usr/lib]
+          arg [CMakeFiles/cmTC_cd7fd.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtendS.o] ==> obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtendS.o]
+          arg [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crtn.o] ==> obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crtn.o]
+        collapse obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/Scrt1.o] ==> [/data/home/nao/gentoo/usr/lib64/Scrt1.o]
+        collapse obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crti.o] ==> [/data/home/nao/gentoo/usr/lib64/crti.o]
+        collapse obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtbeginS.o] ==> [/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/crtbeginS.o]
+        collapse obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtendS.o] ==> [/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/crtendS.o]
+        collapse obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crtn.o] ==> [/data/home/nao/gentoo/usr/lib64/crtn.o]
+        collapse library dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12] ==> [/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12]
+        collapse library dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc] ==> [/data/home/nao/gentoo/usr/lib/gcc]
+        collapse library dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64] ==> [/data/home/nao/gentoo/usr/lib64]
+        collapse library dir [/tmp/gentoo/lib/../lib64] ==> [/tmp/gentoo/lib64]
+        collapse library dir [/tmp/gentoo/usr/lib/../lib64] ==> [/tmp/gentoo/usr/lib64]
+        collapse library dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib] ==> [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/lib]
+        collapse library dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../..] ==> [/data/home/nao/gentoo/usr/lib]
+        collapse library dir [/tmp/gentoo/lib] ==> [/tmp/gentoo/lib]
+        collapse library dir [/tmp/gentoo/usr/lib] ==> [/tmp/gentoo/usr/lib]
+        implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+        implicit objs: [/data/home/nao/gentoo/usr/lib64/Scrt1.o;/data/home/nao/gentoo/usr/lib64/crti.o;/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/crtbeginS.o;/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/crtendS.o;/data/home/nao/gentoo/usr/lib64/crtn.o]
+        implicit dirs: [/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12;/data/home/nao/gentoo/usr/lib/gcc;/data/home/nao/gentoo/usr/lib64;/tmp/gentoo/lib64;/tmp/gentoo/usr/lib64;/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/lib;/data/home/nao/gentoo/usr/lib;/tmp/gentoo/lib;/tmp/gentoo/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-tQBHZq"
+      binary: "/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-tQBHZq"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-tQBHZq'
+        
+        Run Build Command(s): /data/home/nao/gentoo/usr/bin/cmake -E env VERBOSE=1 /tmp/gentoo/usr/bin/gmake -f Makefile cmTC_bd298/fast
+        /tmp/gentoo/usr/bin/gmake  -f CMakeFiles/cmTC_bd298.dir/build.make CMakeFiles/cmTC_bd298.dir/build
+        gmake[1]: Entering directory '/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-tQBHZq'
+        Building CXX object CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o
+        /tmp/gentoo/usr/bin/c++   -v -o CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o -c /data/home/nao/gentoo/usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        COLLECT_GCC=/tmp/gentoo/usr/bin/c++
+        Target: x86_64-pc-linux-gnu
+        Configured with: /data/home/nao/gentoo/var/tmp/portage/sys-devel/gcc-12.2.1_p20230428-r1/work/gcc-12-20230428/configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --prefix=/tmp/gentoo/usr --bindir=/tmp/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12 --includedir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include --datadir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12 --mandir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/man --infodir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/info --with-gxx-include-dir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12 --disable-silent-rules --disable-dependency-tracking --with-python-dir=/share/gcc-data/x86_64-pc-linux-gnu/12/python --enable-languages=c,c++,fortran --enable-obsolete --enable-secureplt --disable-werror --with-system-zlib --enable-nls --without-included-gettext --disable-libunwind-exceptions --enable-checking=release --with-bugurl=https://bugs.gentoo.org/ --with-pkgversion='Gentoo 12.2.1_p20230428-r1 p2' --with-gcc-major-version-only --enable-libstdcxx-time --enable-lto --disable-libstdcxx-pch --enable-shared --enable-threads=posix --with-sysroot=/tmp/gentoo --with-build-sysroot=/tmp/gentoo --enable-__cxa_atexit --enable-clocale=gnu --disable-multilib --with-multilib-list=m64 --disable-fixed-point --enable-targets=all --enable-libgomp --disable-libssp --disable-libada --disable-cet --disable-systemtap --disable-valgrind-annotations --disable-vtable-verify --disable-libvtv --without-zstd --without-isl --enable-default-pie --enable-default-ssp
+        Thread model: posix
+        Supported LTO compression algorithms: zlib
+        gcc version 12.2.1 20230428 (Gentoo 12.2.1_p20230428-r1 p2) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_bd298.dir/'
+         /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/cc1plus -quiet -v -iprefix /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/ -D_GNU_SOURCE /data/home/nao/gentoo/usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_bd298.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccC2OG4q.s
+        GNU C++17 (Gentoo 12.2.1_p20230428-r1 p2) version 12.2.1 20230428 (x86_64-pc-linux-gnu)
+        	compiled by GNU C version 12.2.1 20230428, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version none
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/include"
+        ignoring duplicate directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/12/include"
+        ignoring nonexistent directory "/tmp/gentoo/usr/local/include"
+        ignoring duplicate directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/12/include-fixed"
+        ignoring nonexistent directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include
+         /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include-fixed
+         /tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12
+         /tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12/x86_64-pc-linux-gnu
+         /tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12/backward
+         /tmp/gentoo/usr/include
+        End of search list.
+        GNU C++17 (Gentoo 12.2.1_p20230428-r1 p2) version 12.2.1 20230428 (x86_64-pc-linux-gnu)
+        	compiled by GNU C version 12.2.1 20230428, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version none
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: a57ffcf190886135125b1546f591cd4a
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_bd298.dir/'
+         /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/bin/as -v --64 -o CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccC2OG4q.s
+        GNU assembler version 2.39.0 (x86_64-pc-linux-gnu) using BFD version (Gentoo 2.39 p6) 2.39.0
+        COMPILER_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/bin/
+        LIBRARY_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/:/tmp/gentoo/lib/../lib64/:/tmp/gentoo/usr/lib/../lib64/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../:/tmp/gentoo/lib/:/tmp/gentoo/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_bd298
+        /data/home/nao/gentoo/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bd298.dir/link.txt --verbose=1
+        /tmp/gentoo/usr/bin/c++  -v CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_bd298 
+        Using built-in specs.
+        COLLECT_GCC=/tmp/gentoo/usr/bin/c++
+        COLLECT_LTO_WRAPPER=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/lto-wrapper
+        Target: x86_64-pc-linux-gnu
+        Configured with: /data/home/nao/gentoo/var/tmp/portage/sys-devel/gcc-12.2.1_p20230428-r1/work/gcc-12-20230428/configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --prefix=/tmp/gentoo/usr --bindir=/tmp/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12 --includedir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include --datadir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12 --mandir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/man --infodir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/info --with-gxx-include-dir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12 --disable-silent-rules --disable-dependency-tracking --with-python-dir=/share/gcc-data/x86_64-pc-linux-gnu/12/python --enable-languages=c,c++,fortran --enable-obsolete --enable-secureplt --disable-werror --with-system-zlib --enable-nls --without-included-gettext --disable-libunwind-exceptions --enable-checking=release --with-bugurl=https://bugs.gentoo.org/ --with-pkgversion='Gentoo 12.2.1_p20230428-r1 p2' --with-gcc-major-version-only --enable-libstdcxx-time --enable-lto --disable-libstdcxx-pch --enable-shared --enable-threads=posix --with-sysroot=/tmp/gentoo --with-build-sysroot=/tmp/gentoo --enable-__cxa_atexit --enable-clocale=gnu --disable-multilib --with-multilib-list=m64 --disable-fixed-point --enable-targets=all --enable-libgomp --disable-libssp --disable-libada --disable-cet --disable-systemtap --disable-valgrind-annotations --disable-vtable-verify --disable-libvtv --without-zstd --without-isl --enable-default-pie --enable-default-ssp
+        Thread model: posix
+        Supported LTO compression algorithms: zlib
+        gcc version 12.2.1 20230428 (Gentoo 12.2.1_p20230428-r1 p2) 
+        COMPILER_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/bin/
+        LIBRARY_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/:/tmp/gentoo/lib/../lib64/:/tmp/gentoo/usr/lib/../lib64/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../:/tmp/gentoo/lib/:/tmp/gentoo/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bd298' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_bd298.'
+         /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/collect2 -plugin /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/liblto_plugin.so -plugin-opt=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccGi2QMb.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/tmp/gentoo --eh-frame-hdr -m elf_x86_64 -dynamic-linker /tmp/gentoo/lib64/ld-linux-x86-64.so.2 -pie -o cmTC_bd298 /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/Scrt1.o /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crti.o /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtbeginS.o -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12 -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64 -L/tmp/gentoo/lib/../lib64 -L/tmp/gentoo/usr/lib/../lib64 -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../.. -L/tmp/gentoo/lib -L/tmp/gentoo/usr/lib CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtendS.o /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bd298' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_bd298.'
+        gmake[1]: Leaving directory '/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-tQBHZq'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include]
+          add: [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include-fixed]
+          add: [/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12]
+          add: [/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12/x86_64-pc-linux-gnu]
+          add: [/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12/backward]
+          add: [/tmp/gentoo/usr/include]
+        end of search list found
+        collapse include dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include] ==> [/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include]
+        collapse include dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include-fixed] ==> [/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include-fixed]
+        collapse include dir [/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12] ==> [/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12]
+        collapse include dir [/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12/x86_64-pc-linux-gnu] ==> [/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12/x86_64-pc-linux-gnu]
+        collapse include dir [/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12/backward] ==> [/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12/backward]
+        collapse include dir [/tmp/gentoo/usr/include] ==> [/tmp/gentoo/usr/include]
+        implicit include dirs: [/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include;/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include-fixed;/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12;/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12/x86_64-pc-linux-gnu;/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12/backward;/tmp/gentoo/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:152 (message)"
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: '/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-tQBHZq']
+        ignore line: []
+        ignore line: [Run Build Command(s): /data/home/nao/gentoo/usr/bin/cmake -E env VERBOSE=1 /tmp/gentoo/usr/bin/gmake -f Makefile cmTC_bd298/fast]
+        ignore line: [/tmp/gentoo/usr/bin/gmake  -f CMakeFiles/cmTC_bd298.dir/build.make CMakeFiles/cmTC_bd298.dir/build]
+        ignore line: [gmake[1]: Entering directory '/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-tQBHZq']
+        ignore line: [Building CXX object CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/tmp/gentoo/usr/bin/c++   -v -o CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o -c /data/home/nao/gentoo/usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/tmp/gentoo/usr/bin/c++]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: /data/home/nao/gentoo/var/tmp/portage/sys-devel/gcc-12.2.1_p20230428-r1/work/gcc-12-20230428/configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --prefix=/tmp/gentoo/usr --bindir=/tmp/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12 --includedir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include --datadir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12 --mandir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/man --infodir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/info --with-gxx-include-dir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12 --disable-silent-rules --disable-dependency-tracking --with-python-dir=/share/gcc-data/x86_64-pc-linux-gnu/12/python --enable-languages=c c++ fortran --enable-obsolete --enable-secureplt --disable-werror --with-system-zlib --enable-nls --without-included-gettext --disable-libunwind-exceptions --enable-checking=release --with-bugurl=https://bugs.gentoo.org/ --with-pkgversion='Gentoo 12.2.1_p20230428-r1 p2' --with-gcc-major-version-only --enable-libstdcxx-time --enable-lto --disable-libstdcxx-pch --enable-shared --enable-threads=posix --with-sysroot=/tmp/gentoo --with-build-sysroot=/tmp/gentoo --enable-__cxa_atexit --enable-clocale=gnu --disable-multilib --with-multilib-list=m64 --disable-fixed-point --enable-targets=all --enable-libgomp --disable-libssp --disable-libada --disable-cet --disable-systemtap --disable-valgrind-annotations --disable-vtable-verify --disable-libvtv --without-zstd --without-isl --enable-default-pie --enable-default-ssp]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib]
+        ignore line: [gcc version 12.2.1 20230428 (Gentoo 12.2.1_p20230428-r1 p2) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_bd298.dir/']
+        ignore line: [ /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/cc1plus -quiet -v -iprefix /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/ -D_GNU_SOURCE /data/home/nao/gentoo/usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_bd298.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccC2OG4q.s]
+        ignore line: [GNU C++17 (Gentoo 12.2.1_p20230428-r1 p2) version 12.2.1 20230428 (x86_64-pc-linux-gnu)]
+        ignore line: [	compiled by GNU C version 12.2.1 20230428  GMP version 6.2.1  MPFR version 4.2.0  MPC version 1.3.1  isl version none]
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [ignoring duplicate directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/12/include"]
+        ignore line: [ignoring nonexistent directory "/tmp/gentoo/usr/local/include"]
+        ignore line: [ignoring duplicate directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/12/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include]
+        ignore line: [ /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/include-fixed]
+        ignore line: [ /tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12]
+        ignore line: [ /tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12/x86_64-pc-linux-gnu]
+        ignore line: [ /tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12/backward]
+        ignore line: [ /tmp/gentoo/usr/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C++17 (Gentoo 12.2.1_p20230428-r1 p2) version 12.2.1 20230428 (x86_64-pc-linux-gnu)]
+        ignore line: [	compiled by GNU C version 12.2.1 20230428  GMP version 6.2.1  MPFR version 4.2.0  MPC version 1.3.1  isl version none]
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: a57ffcf190886135125b1546f591cd4a]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_bd298.dir/']
+        ignore line: [ /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/bin/as -v --64 -o CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccC2OG4q.s]
+        ignore line: [GNU assembler version 2.39.0 (x86_64-pc-linux-gnu) using BFD version (Gentoo 2.39 p6) 2.39.0]
+        ignore line: [COMPILER_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/bin/]
+        ignore line: [LIBRARY_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/:/tmp/gentoo/lib/../lib64/:/tmp/gentoo/usr/lib/../lib64/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../:/tmp/gentoo/lib/:/tmp/gentoo/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_bd298]
+        ignore line: [/data/home/nao/gentoo/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bd298.dir/link.txt --verbose=1]
+        ignore line: [/tmp/gentoo/usr/bin/c++  -v CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_bd298 ]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/tmp/gentoo/usr/bin/c++]
+        ignore line: [COLLECT_LTO_WRAPPER=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/lto-wrapper]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: /data/home/nao/gentoo/var/tmp/portage/sys-devel/gcc-12.2.1_p20230428-r1/work/gcc-12-20230428/configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --prefix=/tmp/gentoo/usr --bindir=/tmp/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12 --includedir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include --datadir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12 --mandir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/man --infodir=/tmp/gentoo/usr/share/gcc-data/x86_64-pc-linux-gnu/12/info --with-gxx-include-dir=/tmp/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/include/g++-v12 --disable-silent-rules --disable-dependency-tracking --with-python-dir=/share/gcc-data/x86_64-pc-linux-gnu/12/python --enable-languages=c c++ fortran --enable-obsolete --enable-secureplt --disable-werror --with-system-zlib --enable-nls --without-included-gettext --disable-libunwind-exceptions --enable-checking=release --with-bugurl=https://bugs.gentoo.org/ --with-pkgversion='Gentoo 12.2.1_p20230428-r1 p2' --with-gcc-major-version-only --enable-libstdcxx-time --enable-lto --disable-libstdcxx-pch --enable-shared --enable-threads=posix --with-sysroot=/tmp/gentoo --with-build-sysroot=/tmp/gentoo --enable-__cxa_atexit --enable-clocale=gnu --disable-multilib --with-multilib-list=m64 --disable-fixed-point --enable-targets=all --enable-libgomp --disable-libssp --disable-libada --disable-cet --disable-systemtap --disable-valgrind-annotations --disable-vtable-verify --disable-libvtv --without-zstd --without-isl --enable-default-pie --enable-default-ssp]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib]
+        ignore line: [gcc version 12.2.1 20230428 (Gentoo 12.2.1_p20230428-r1 p2) ]
+        ignore line: [COMPILER_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/bin/]
+        ignore line: [LIBRARY_PATH=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/:/tmp/gentoo/lib/../lib64/:/tmp/gentoo/usr/lib/../lib64/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib/:/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../:/tmp/gentoo/lib/:/tmp/gentoo/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bd298' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_bd298.']
+        link line: [ /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/collect2 -plugin /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/liblto_plugin.so -plugin-opt=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccGi2QMb.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/tmp/gentoo --eh-frame-hdr -m elf_x86_64 -dynamic-linker /tmp/gentoo/lib64/ld-linux-x86-64.so.2 -pie -o cmTC_bd298 /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/Scrt1.o /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crti.o /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtbeginS.o -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12 -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64 -L/tmp/gentoo/lib/../lib64 -L/tmp/gentoo/usr/lib/../lib64 -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib -L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../.. -L/tmp/gentoo/lib -L/tmp/gentoo/usr/lib CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtendS.o /data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crtn.o]
+          arg [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../libexec/gcc/x86_64-pc-linux-gnu/12/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccGi2QMb.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [--sysroot=/tmp/gentoo] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/tmp/gentoo/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_bd298] ==> ignore
+          arg [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/Scrt1.o] ==> obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/Scrt1.o]
+          arg [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crti.o] ==> obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crti.o]
+          arg [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtbeginS.o] ==> obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtbeginS.o]
+          arg [-L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12] ==> dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12]
+          arg [-L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc] ==> dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc]
+          arg [-L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64] ==> dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64]
+          arg [-L/tmp/gentoo/lib/../lib64] ==> dir [/tmp/gentoo/lib/../lib64]
+          arg [-L/tmp/gentoo/usr/lib/../lib64] ==> dir [/tmp/gentoo/usr/lib/../lib64]
+          arg [-L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib] ==> dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib]
+          arg [-L/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../..] ==> dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../..]
+          arg [-L/tmp/gentoo/lib] ==> dir [/tmp/gentoo/lib]
+          arg [-L/tmp/gentoo/usr/lib] ==> dir [/tmp/gentoo/usr/lib]
+          arg [CMakeFiles/cmTC_bd298.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtendS.o] ==> obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtendS.o]
+          arg [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crtn.o] ==> obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crtn.o]
+        collapse obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/Scrt1.o] ==> [/data/home/nao/gentoo/usr/lib64/Scrt1.o]
+        collapse obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crti.o] ==> [/data/home/nao/gentoo/usr/lib64/crti.o]
+        collapse obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtbeginS.o] ==> [/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/crtbeginS.o]
+        collapse obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/crtendS.o] ==> [/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/crtendS.o]
+        collapse obj [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64/crtn.o] ==> [/data/home/nao/gentoo/usr/lib64/crtn.o]
+        collapse library dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12] ==> [/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12]
+        collapse library dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc] ==> [/data/home/nao/gentoo/usr/lib/gcc]
+        collapse library dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../lib64] ==> [/data/home/nao/gentoo/usr/lib64]
+        collapse library dir [/tmp/gentoo/lib/../lib64] ==> [/tmp/gentoo/lib64]
+        collapse library dir [/tmp/gentoo/usr/lib/../lib64] ==> [/tmp/gentoo/usr/lib64]
+        collapse library dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../../../x86_64-pc-linux-gnu/lib] ==> [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/lib]
+        collapse library dir [/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/gcc-bin/12/../../../lib/gcc/x86_64-pc-linux-gnu/12/../../..] ==> [/data/home/nao/gentoo/usr/lib]
+        collapse library dir [/tmp/gentoo/lib] ==> [/tmp/gentoo/lib]
+        collapse library dir [/tmp/gentoo/usr/lib] ==> [/tmp/gentoo/usr/lib]
+        implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+        implicit objs: [/data/home/nao/gentoo/usr/lib64/Scrt1.o;/data/home/nao/gentoo/usr/lib64/crti.o;/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/crtbeginS.o;/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12/crtendS.o;/data/home/nao/gentoo/usr/lib64/crtn.o]
+        implicit dirs: [/data/home/nao/gentoo/usr/lib/gcc/x86_64-pc-linux-gnu/12;/data/home/nao/gentoo/usr/lib/gcc;/data/home/nao/gentoo/usr/lib64;/tmp/gentoo/lib64;/tmp/gentoo/usr/lib64;/data/home/nao/gentoo/usr/x86_64-pc-linux-gnu/lib;/data/home/nao/gentoo/usr/lib;/tmp/gentoo/lib;/tmp/gentoo/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/data/home/nao/gentoo/usr/share/cmake/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "/data/home/nao/ros2_humble/install/spdlog_vendor/lib64/cmake/spdlog/spdlogConfig.cmake:4 (find_package)"
+      - "/data/home/nao/ros2_humble/install/rcl_logging_spdlog/share/rcl_logging_spdlog/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/data/home/nao/ros2_humble/install/rcl_logging_spdlog/share/rcl_logging_spdlog/cmake/rcl_logging_spdlogConfig.cmake:41 (include)"
+      - "/data/home/nao/ros2_humble/install/rcl/share/rcl/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/data/home/nao/ros2_humble/install/rcl/share/rcl/cmake/rclConfig.cmake:41 (include)"
+      - "/data/home/nao/ros2_humble/install/libstatistics_collector/share/libstatistics_collector/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/data/home/nao/ros2_humble/install/libstatistics_collector/share/libstatistics_collector/cmake/libstatistics_collectorConfig.cmake:41 (include)"
+      - "/data/home/nao/ros2_humble/install/rclcpp/share/rclcpp/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/data/home/nao/ros2_humble/install/rclcpp/share/rclcpp/cmake/rclcppConfig.cmake:41 (include)"
+      - "CMakeLists.txt:5 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-5mr9Si"
+      binary: "/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-5mr9Si"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/data/home/nao/ros2_humble/install/fastrtps_cmake_module/share/fastrtps_cmake_module/cmake/Modules"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-5mr9Si'
+        
+        Run Build Command(s): /data/home/nao/gentoo/usr/bin/cmake -E env VERBOSE=1 /tmp/gentoo/usr/bin/gmake -f Makefile cmTC_f627c/fast
+        /tmp/gentoo/usr/bin/gmake  -f CMakeFiles/cmTC_f627c.dir/build.make CMakeFiles/cmTC_f627c.dir/build
+        gmake[1]: Entering directory '/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-5mr9Si'
+        Building C object CMakeFiles/cmTC_f627c.dir/src.c.o
+        /tmp/gentoo/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_f627c.dir/src.c.o -c /data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-5mr9Si/src.c
+        Linking C executable cmTC_f627c
+        /data/home/nao/gentoo/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f627c.dir/link.txt --verbose=1
+        /tmp/gentoo/usr/bin/cc CMakeFiles/cmTC_f627c.dir/src.c.o -o cmTC_f627c 
+        gmake[1]: Leaving directory '/data/home/nao/ros2_humble/build/naoqi_driver/CMakeFiles/CMakeScratch/TryCompile-5mr9Si'
+        
+      exitCode: 0
+...

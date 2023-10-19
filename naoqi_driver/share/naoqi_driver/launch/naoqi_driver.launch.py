@@ -1,0 +1,1 @@
+/data/home/nao/ros2_humble/src/naoqi_driver2/launch/naoqi_driver.launch.py
