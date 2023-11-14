@@ -32,15 +32,13 @@ A plug-and-play environement is available here [here](https://mycore.core-cloud.
 
 ## Build the environment
 
-The environment can be built using the Dockerfile. This requires pepper_os_11.0.4.tar.lzma in the same directory. 
+The environment can be built using the Dockerfile. This requires gentoo_on_tmp.tar.lzma archive in the same directory. This one can be created using: 
 
 ```bash
-#Download pepper_os_11.0.4.tar.lzma
-$ wget --no-check-certificate -O pepper_os_11.0.4.tar.lzma "https://mycore.core-cloud.net/index.php/s/Rh4EbGqxc05W3ap/download?path=%2F&files=pepper_os_11.0.4.tar.lzma"
-$ docker build -f Dockerfile -t pepper_os_humble .
+docker run --entrypoint /tmp/gentoo/executeonprefix gentoo_prefix_32b:latest  "tar -c --lzma -f - -C /tmp gentoo" > ~/gentoo_on_tmp.tar.lzma
 ```
 
-Alternatively, the first command is present but commented at the top of the Dockerfile. Uncommenting it is possible but not advised. Downloading it is this way is considerably slower this way and may take 2~3 hours.
+Here we are using a 32b version of gentoo prefix build in 11/2023 that is a snapshot of current gentoo tree at this time. For a more up-to-date version, please consider rebuilding the prefix from scratch using scripts [in dedicated folder](gentoo_prefix_32b/Readme.md).
 
 ## Compress to lzma
 
@@ -145,8 +143,3 @@ $ rviz2 rviz
 ```
 
 To start rviz2 and display the topic of interest (Add -> By topic).
-
-## Future works
-
-* Currently, the dockerfile requires an older version of pepper_os_noetic to be built. This is to avoid having to configure the entire environement from scratch (boost, python libraries...). Building one from scratch would slim down the size of the archive and remove obsolete packages.
-* Using python3.10 instead of python3.8. Python3.10 is now the default python implementation on gentoo. 

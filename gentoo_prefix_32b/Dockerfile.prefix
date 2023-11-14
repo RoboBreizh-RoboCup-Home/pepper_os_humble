@@ -1,0 +1,60 @@
+# Just Ubuntu 16.04 with a user called user and some basic tools
+FROM 32bit/ubuntu:16.04
+
+RUN apt-get update
+# Add sudo
+RUN apt-get install apt-utils sudo -y
+
+# Create user
+RUN useradd --create-home --shell=/bin/bash user
+RUN chown -R user /home/user/
+# Add the user to sudoers
+RUN chmod -R o-w /etc/sudoers.d/
+RUN usermod -aG sudo user
+# Give the user a password
+RUN echo user:user | chpasswd
+
+# Instal basic stuff
+RUN apt-get install build-essential -y
+
+# Nice tools to have
+RUN apt-get install bash-completion nano net-tools less iputils-ping vim emacs wget -y
+RUN apt-get install python-pip python-dev  -y
+# To enable ssh
+RUN apt-get install openssh-server -y
+# Download tools
+RUN apt-get install wget curl aria2 -y
+
+WORKDIR /home/user
+USER user
+
+# Let's get some specs of the machine that is running this job
+RUN cat /proc/cpuinfo && cat /proc/meminfo && df -h
+
+COPY bootstrap-prefix.sh bootstrap-prefix.sh
+# RUN chmod +x bootstrap-prefix.sh
+ENV EPREFIX /tmp/gentoo
+
+# Bootstrap Gentoo Prefix
+RUN STOP_BOOTSTRAP_AFTER=stage1 LATEST_TREE_YES=1 TESTING_PV=latest linux32 ./bootstrap-prefix.sh ${EPREFIX} noninteractive
+
+RUN STOP_BOOTSTRAP_AFTER=stage2 LATEST_TREE_YES=1 TESTING_PV=latest linux32 ./bootstrap-prefix.sh ${EPREFIX} noninteractive
+
+RUN STOP_BOOTSTRAP_AFTER=stage3 LATEST_TREE_YES=1 TESTING_PV=latest linux32 ./bootstrap-prefix.sh ${EPREFIX} noninteractive
+
+RUN LATEST_TREE_YES=1 TESTING_PV=latest linux32 ./bootstrap-prefix.sh ${EPREFIX} noninteractive
+
+# Add helpful scripts to use Gentoo Prefix on /tmp/gentoo
+# startprefix just makes sure the softlink to /tmp/gentoo is done
+COPY startprefix startprefix
+# executeonprefix is to be used from a non-prefixed shell to
+# execute commands in the prefix environment (on boot, for example)
+COPY executeonprefix executeonprefix
+RUN mv /tmp/gentoo/startprefix /tmp/gentoo/startprefix_original
+RUN cp startprefix /tmp/gentoo
+RUN cp executeonprefix /tmp/gentoo
+
+RUN chmod +x /tmp/gentoo/executeonprefix
+RUN chmod +x /tmp/gentoo/startprefix
+
+ENTRYPOINT ["/bin/bash"]
