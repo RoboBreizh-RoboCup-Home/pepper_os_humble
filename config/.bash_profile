@@ -58,6 +58,7 @@ else
 fi
 
 alias nao_driver="ros2 launch naoqi_driver naoqi_driver.launch.py nao_ip:=$ROS_IP network_interface:=$MACHINE_INTERFACE"
+alias pip='pip3'
 
 export PNP_LIBRARY=/home/nao/.local/bin/usr/local/lib/
 export ROS_PACKAGE_PATH=/home/nao/.local/rtabmap/build/bin/:$ROS_PACKAGE_PATH
