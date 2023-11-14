@@ -35,10 +35,10 @@ A plug-and-play environement is available here [here](https://mycore.core-cloud.
 The environment can be built using the Dockerfile. This requires gentoo_on_tmp.tar.lzma archive in the same directory. This one can be created using: 
 
 ```bash
-docker run --entrypoint /tmp/gentoo/executeonprefix gentoo_prefix_32b:latest  "tar -c --lzma -f - -C /tmp gentoo" > ~/gentoo_on_tmp.tar.lzma
+docker run --entrypoint /tmp/gentoo/executeonprefix neaum/gentoo_prefix_32b:latest  "tar -c --lzma -f - -C /tmp gentoo" > ~/gentoo_on_tmp.tar.lzma
 ```
 
-Here we are using a 32b version of gentoo prefix build in 11/2023 that is a snapshot of current gentoo tree at this time. For a more up-to-date version, please consider rebuilding the prefix from scratch using scripts [in dedicated folder](gentoo_prefix_32b/Readme.md).
+Here we are using a 32b version of gentoo prefix build in 11/2023 that is a snapshot of current gentoo tree at this time. For a more up-to-date version, please consider rebuilding the prefix from scratch using scripts [in dedicated folder](gentoo_prefix_32b/).
 
 ## Compress to lzma
 
