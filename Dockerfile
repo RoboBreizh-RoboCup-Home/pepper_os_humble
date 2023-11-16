@@ -86,6 +86,19 @@ RUN emerge dev-util/cmake sys-apps/dbus dev-libs/tinyxml2 dev-cpp/eigen media-li
 RUN echo ">=media-libs/libglvnd-1.7.0 X" >> $EPREFIX/etc/portage/package.use
 RUN FEATURES="-collision-detect -protect-owned" emerge media-libs/mesa
 
+# build libqi
+RUN emerge =dev-libs/boost-1.82.0-r1
+RUN pip install qibuild scikit-build toml pybind11==2.11.1
+
+RUN mkdir -p /home/nao/.local &&\
+    cd /home/nao/.local &&\
+    git clone https://github.com/victorpaleologue/libqi-python.git && \
+    cd libqi-python &&\
+    export BOOST_VERSION=1.82 && \
+    export PYBIND11_VERSION=2.11.1 && \
+    python3.11 ./setup.py bdist_wheel
+
+
 #Download ROS2
 RUN mkdir -p ~/ros2_humble/src &&\
     cd ~/ros2_humble &&\
@@ -108,6 +121,7 @@ RUN . ~/ros2_humble/install/local_setup.bash &&\
     git clone --branch debian/galactic/naoqi_libqicore https://github.com/ros-naoqi/libqicore-release &&\             
     git clone https://github.com/ros-naoqi/naoqi_bridge_msgs2 &&\
     git clone https://github.com/ros/diagnostics
+
 
 WORKDIR /home/nao/
 
