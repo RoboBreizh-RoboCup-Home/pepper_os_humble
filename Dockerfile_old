@@ -95,15 +95,15 @@ RUN . ~/ros2_humble/install/local_setup.bash &&\
     git clone https://github.com/ros/diagnostics
 
 # ONNX won't install protoc correctly by default so we do it beforehand
-RUN cd .local && wget https://github.com/protocolbuffers/protobuf/releases/download/v21.12/protoc-21.12-linux-x86_32.zip && \
+RUN cd ~/.local && wget https://github.com/protocolbuffers/protobuf/releases/download/v21.12/protoc-21.12-linux-x86_32.zip && \
     unzip -o protoc-21.12-linux-x86_32.zip -d /tmp/gentoo/usr/local/ bin/protoc && \
     unzip -o protoc-21.12-linux-x86_32.zip -d /tmp/gentoo/usr/local/ 'include/*' && \
     ldconfig && \
     rm protoc-21.12-linux-x86_32.zip
 
-# build latest onnxruntime version
+# build latest onnxruntime version - for whatever reason only the v1.16.3 version can compile here
 RUN cd .local && git clone --recursive https://github.com/Microsoft/onnxruntime.git && \
-    cd onnxruntime && \
+    cd onnxruntime && git checkout v1.16.3 && \ 
     ./build.sh --config Release --parallel --build_wheel --disable_ml_ops --update --build --build_shared_lib --cmake_extra_defines CMAKE_INSTALL_PREFIX=/tmp/gentoo/usr CMAKE_CXX_FLAGS="-mavx" CMAKE_SYSTEM_NAME=Linux CMAKE_SYSTEM_PROCESSOR=i686 ONNX_CUSTOM_PROTOC_EXECUTABLE=/tmp/gentoo/usr/local/bin/protoc && \
     cd build/Linux/Release/ && \
     make install && \

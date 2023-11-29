@@ -1,0 +1,155 @@
+# Just Ubuntu 16.04 with a user called user and some basic tools
+FROM 32bit/ubuntu:16.04
+
+RUN apt-get update
+# Add sudo
+RUN apt-get install apt-utils sudo -y
+
+# Create user
+RUN useradd --create-home --shell=/bin/bash user
+RUN chown -R user /home/user/
+# Add the user to sudoers
+RUN chmod -R o-w /etc/sudoers.d/
+RUN usermod -aG sudo user
+# Give the user a password
+RUN echo user:user | chpasswd
+
+# Instal basic stuff
+RUN apt-get install build-essential -y
+
+# Nice tools to have
+RUN apt-get install python-pip python-dev -y
+RUN apt-get install bash-completion nano net-tools less iputils-ping vim emacs -y
+# Download stuff
+RUN apt-get install wget curl aria2 -y
+# To enable ssh
+RUN apt-get install openssh-server -y
+
+WORKDIR /tmp
+USER user
+
+# Let's get some specs of the machine that is running this job
+RUN cat /proc/cpuinfo; cat /proc/meminfo; df -h
+
+COPY gentoo_on_tmp.tar.lzma  /tmp/gentoo_on_tmp.tar.lzma
+RUN tar xvf /tmp/gentoo_on_tmp.tar.lzma 
+
+# Fix permissions of tmp
+USER root
+RUN rm gentoo_on_tmp.tar.lzma
+USER user
+
+# Make sure it works
+RUN bash gentoo/executeonprefix emerge --version
+
+# All commands to run in the Gentoo Prefix environment must
+# be preprended by $PREFIXED
+ENV PREFIXED="linux32 /tmp/gentoo/executeonprefix"
+ENV EPREFIX=/tmp/gentoo
+ENV CHOST i686-pc-linux-gnu
+
+# So we dont get complains
+RUN echo "en_US.UTF-8 UTF-8" >> $EPREFIX/etc/locale.gen
+RUN $PREFIXED locale-gen
+
+RUN mv /tmp/gentoo/etc/portage/make.conf/0100_bootstrap_prefix_make.conf /tmp/gentoo/etc/portage/0100_bootstrap_prefix_make.conf && rm -r /tmp/gentoo/etc/portage/make.conf && mv /tmp/gentoo/etc/portage/0100_bootstrap_prefix_make.conf /tmp/gentoo/etc/portage/make.conf
+
+# Let's make the compilations faster when possible
+# Substitute the default -j2 with -j<NUM_CORES/2>
+RUN sed -i -e 's/j2/j'"$((`grep -c \^processor \/proc\/cpuinfo` / 2))"'/g' $EPREFIX/etc/portage/make.conf
+# Add extra jobs if we have enough CPUs
+RUN echo "EMERGE_DEFAULT_OPTS=\"--jobs $((`grep -c \^processor \/proc\/cpuinfo` / 2)) --load-average `grep -c \^processor \/proc\/cpuinfo`\"" >> $EPREFIX/etc/portage/make.conf
+
+RUN cat /tmp/gentoo/etc/portage/make.conf
+
+RUN $PREFIXED update-ca-certificates
+
+# Emerging git
+RUN $PREFIXED emerge dev-vcs/git
+
+# Set up Gentoo to sync via git (way faster)
+RUN rm -rf $EPREFIX/usr/portage && mkdir -p $EPREFIX/etc/portage/repos.conf && echo "[DEFAULT]\n\
+main-repo = gentoo\n\
+\n\
+[gentoo]\n\
+location = /tmp/gentoo/usr/portage\n\
+sync-type = git\n\
+sync-uri = https://github.com/gentoo-mirror/gentoo \n\
+auto-sync = yes\n\
+masters = gentoo" > $EPREFIX/etc/portage/repos.conf/gentoo.conf
+
+# Sync everything
+RUN $PREFIXED emaint sync -a
+RUN $PREFIXED emerge --sync 
+RUN $PREFIXED emerge gentoo-sources
+
+RUN $PREFIXED emerge dev-python/pip
+# I don't know why this is needed, but it is
+RUN rm -rf /tmp/gentoo/usr/lib/python3.11/EXTERNALLY-MANAGED
+
+# Some dependencies
+# Don't ask me why openblas needs BINARY=32, but it does
+RUN $PREFIXED BINARY=32 emerge openblas
+RUN $PREFIXED NPY_DISABLE_SVML=1 python3.11 -m pip install numpy==1.22.2
+RUN $PREFIXED python3.11 -m pip install opencv-python colcon-common-extensions coverage flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mock mypy pep8 pydocstyle pytest pytest-mock vcstool empy lark catkin_pkg qibuild scikit-build toml pybind11==2.11.1
+RUN $PREFIXED emerge dev-util/cmake sys-apps/dbus dev-libs/tinyxml2 dev-cpp/eigen media-libs/libglvnd dev-libs/openssl app-admin/eselect sci-libs/orocos_kdl gtest
+
+RUN echo ">=media-libs/libglvnd-1.7.0 X" >> $EPREFIX/etc/portage/package.use
+RUN $PREFIXED FEATURES="-collision-detect" emerge media-libs/mesa
+
+RUN $PREFIXED emerge =sys-devel/gcc-11.4.1_p20230622
+RUN $PREFIXED gcc-config 1
+
+# Install boost 1.78
+RUN echo "=dev-libs/boost-1.78.0-r3 python" >> /tmp/gentoo/etc/portage/package.use
+
+ADD --chown=user:user ebuilds/dev-libs/boost /tmp/gentoo/usr/portage/dev-libs/boost
+ADD --chown=user:user ebuilds/dev-util/boost-build /tmp/gentoo/usr/portage/dev-util/boost-build
+# build the ebuilds
+RUN ${PREFIXED} ebuild /tmp/gentoo/usr/portage/dev-util/boost-build/boost-build-1.78.0-r1.ebuild manifest && \
+    ${PREFIXED} ebuild /tmp/gentoo/usr/portage/dev-libs/boost/boost-1.78.0-r3.ebuild manifest
+# install the ebuilds
+RUN ${PREFIXED} emerge =dev-util/boost-build-1.78.0-r1 =dev-libs/boost-1.78.0-r3
+
+RUN echo "=sci-libs/pcl-1.12.1-r2::gentoo **" >> /tmp/gentoo/etc/portage/package.accept_keywords
+
+RUN ${PREFIXED} USE="openmp" emerge sci-libs/pcl sci-libs/lapack patchelf emerge gst-plugins-good gstreamer gst-plugins-meta
+
+SHELL ["/tmp/gentoo/executeonprefix"]
+
+#Install asio (Required by ROS2)
+RUN cd ~/ &&\
+ wget https://sourceforge.net/projects/asio/files/asio/1.28.0%20%28Stable%29/asio-1.28.0.tar.gz &&\
+ tar -xzf asio-1.28.0.tar.gz &&\
+ cd asio-1.28.0/ &&\
+ autoreconf -i &&\
+ ./configure &&\
+ make -j8 &&\
+ make prefix=/tmp/gentoo/usr libdir=/tmp/gentoo/lib install 
+
+# Cleanup
+RUN rm -rf ~/asio-1.28.0.tar.gz &&\
+    rm -rf ~/asio-1.28.0
+
+#Install opencv from source (Required by ROS2)
+#RUN ${PREFIXED} emerge media-libs/opencv doesn't work
+#The emerge gentoo version returns "libopencv_core.so.4.7.0: undefined reference to `GOMP_parallel@GOMP_4.0'" while trying to install ROS2.
+RUN cd ~/ &&\
+    git clone https://github.com/opencv/opencv.git &&\
+    git clone https://github.com/opencv/opencv_contrib.git &&\
+    cd ~/opencv &&\
+    mkdir build &&\
+    cd build &&\
+    cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/tmp/gentoo/usr -D PYTHON_INCLUDE_DIR=/tmp/gentoo/usr/include/python3.11 .. &&\
+    #${PREFIXED} cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/tmp/gentoo(/local) -D PYTHON_INCLUDE_DIR=/tmp/gentoo/usr/include/python3.10
+    make -j8 &&\
+    make install
+# Cleanup
+RUN rm -rf ~/opencv &&\
+    rm -rf ~/opencv_contrib
+
+RUN ldconfig -p
+
+WORKDIR /home/nao/
+
+ENTRYPOINT ["/bin/bash"]
