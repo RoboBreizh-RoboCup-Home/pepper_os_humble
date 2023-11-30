@@ -168,7 +168,7 @@ USER nao
 
 SHELL ["/tmp/gentoo/executeonprefix"]
 
+RUN ls
 RUN cd /home/nao && tar -c --lzma -f /tmp/pepper_os.tar.lzma -C /home/nao gentoo -C  /home/nao ros2_humble -C /home/nao .local -C /home/nao .bash_profile -C /home/nao naoqi -C /home/nao catkin_ros2 || true
-
 
 ENTRYPOINT ["/bin/bash"]
