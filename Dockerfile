@@ -53,7 +53,7 @@ RUN emerge --depclean
 RUN rm -rf /tmp/gentoo/usr/bin/python3.12 /tmp/gentoo/usr/bin/python3.12-config
 
 #install onnxruntime from wheel
-ADD onnxruntime-1.16.3-cp311-cp311-linux_i686.whl /tmp/gentoo/onnxruntime-1.16.3-cp311-cp311-linux_i686.whl
+ADD wheels/onnxruntime-1.16.3-cp311-cp311-linux_i686.whl /tmp/gentoo/onnxruntime-1.16.3-cp311-cp311-linux_i686.whl
 RUN pip install /tmp/gentoo/onnxruntime-1.16.3-cp311-cp311-linux_i686.whl && rm /tmp/gentoo/onnxruntime-1.16.3-cp311-cp311-linux_i686.whl
 
 RUN mkdir -p /home/nao/.local &&\
@@ -71,11 +71,15 @@ RUN mkdir -p /home/nao/.local &&\
     make -j12 && \
     make install
 
-RUN mkdir -p /home/nao/.local &&\
-    cd /home/nao/.local &&\
-    git clone https://github.com/victorpaleologue/libqi-python.git && cd libqi-python && \
-    BOOST_VERSION=1.78 PYBIND11_VERSION=2.11.1 python setup.py bdist_wheel -DQI_WITH_TESTS=OFF -Dqi_DIR=/home/nao/.local/libqi/build/sdk/cmake -Dqibuild_DIR=/home/nao/.local/qibuild/cmake/qibuild && \
-    pip install dist/*.whl
+# RUN mkdir -p /home/nao/.local &&\
+#     cd /home/nao/.local &&\
+#     git clone https://github.com/victorpaleologue/libqi-python.git && cd libqi-python && \
+#     BOOST_VERSION=1.78 PYBIND11_VERSION=2.11.1 python setup.py bdist_wheel -DQI_WITH_TESTS=OFF -Dqi_DIR=/home/nao/.local/libqi/build/sdk/cmake -Dqibuild_DIR=/home/nao/.local/qibuild/cmake/qibuild && \
+#     pip install dist/*.whl
+
+#install libqi-python from wheel
+ADD wheels/qi-3.1.0-cp311-cp311-linux_i686.whl /tmp/gentoo/qi-3.1.0-cp311-cp311-linux_i686.whl
+RUN pip install /tmp/gentoo/qi-3.1.0-cp311-cp311-linux_i686.whl && rm /tmp/gentoo/qi-3.1.0-cp311-cp311-linux_i686.whl
 
 RUN cd /home/nao/.local && \
     git clone -b vosk --single-branch https://github.com/alphacep/kaldi \
@@ -148,13 +152,18 @@ RUN . ~/ros2_humble/install/local_setup.bash &&\
     git clone https://github.com/ros/diagnostics && \
     cd .. && colcon build --symlink-install  --cmake-args -DBUILD_TESTING=OFF
 
-RUN cd .local && git clone https://github.com/tensorflow/tensorflow.git tensorflow_src
-RUN cd .local/tensorflow_src && \
-    PYTHON=python3.11 tensorflow/lite/tools/pip_package/build_pip_package_with_cmake.sh silvermont
-RUN pip install /data/home/nao/.local/tensorflow_src/tensorflow/lite/tools/pip_package/gen/tflite_pip/python3/dist/tflite_runtime-2.16.0-cp311-cp311-linux_i686.whl
+# Build tensorflow lite - legacy, can be used for debuging purposes
+# RUN cd .local && git clone https://github.com/tensorflow/tensorflow.git tensorflow_src
+# RUN cd .local/tensorflow_src && \
+#     PYTHON=python3.11 tensorflow/lite/tools/pip_package/build_pip_package_with_cmake.sh silvermont
+# RUN pip install /data/home/nao/.local/tensorflow_src/tensorflow/lite/tools/pip_package/gen/tflite_pip/python3/dist/tflite_runtime-2.16.0-cp311-cp311-linux_i686.whl
+
+#install tflite from wheel
+ADD wheels/tflite_runtime-2.16.0-cp311-cp311-linux_i686.whl /tmp/gentoo/tflite_runtime-2.16.0-cp311-cp311-linux_i686.whl
+RUN pip install /tmp/gentoo/tflite_runtime-2.16.0-cp311-cp311-linux_i686.whl && rm /tmp/gentoo/tflite_runtime-2.16.0-cp311-cp311-linux_i686.whl
 
 RUN ls  /home/nao/.local
-RUN rm -rf pybind11 && cd .local && rm -rf vosk-api libqi libqi-python qibuild tensorflow_src
+RUN rm -rf pybind11 && cd .local && rm -rf vosk-api libqi libqi-python qibuild
 # # # cleanup space first
 RUN rm -rf /tmp/gentoo/var/cache/binpkgs/* /tmp/gentoo/var/tmp/* /home/nao/.cache/* /home/nao/gentoo/var/cache/distfiles/*
 # Hack to earn extra 500MB~
@@ -168,7 +177,6 @@ USER nao
 
 SHELL ["/tmp/gentoo/executeonprefix"]
 
-RUN ls
 RUN cd /home/nao && tar -c --lzma -f /tmp/pepper_os.tar.lzma -C /home/nao gentoo -C  /home/nao ros2_humble -C /home/nao .local -C /home/nao .bash_profile -C /home/nao naoqi -C /home/nao catkin_ros2 || true
 
 ENTRYPOINT ["/bin/bash"]
