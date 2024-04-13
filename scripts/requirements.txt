@@ -13,7 +13,7 @@ cloudpickle==2.0.0
 uptime==3.0.1
 opencv-python==4.7.0.72
 opencv-contrib-python==4.7.0.72
-onnxruntime @ file:///home/nao/custom_wheels/onnxruntime-1.4.0-cp38-cp38-linux_i686.whl
+onnxruntime
 pymongo==4.1.1
 autobahn==22.4.2
 Twisted==22.10.0

@@ -32,29 +32,14 @@ RUN sed -i -e 's/j1/j'"$((`grep -c \^processor \/proc\/cpuinfo` / 2))"'/g' $EPRE
 RUN sed -i 's/EMERGE_DEFAULT_OPTS=.*//' $EPREFIX/etc/portage/make.conf &&\
     echo "EMERGE_DEFAULT_OPTS=\"--jobs $((`grep -c \^processor \/proc\/cpuinfo` / 2)) --load-average `grep -c \^processor \/proc\/cpuinfo`\"" >> $EPREFIX/etc/portage/make.conf
 
-# ONNX won't install protoc correctly by default so we do it beforehand
-# RUN cd ~/.local && wget https://github.com/protocolbuffers/protobuf/releases/download/v21.12/protoc-21.12-linux-x86_32.zip && \
-#     unzip -o protoc-21.12-linux-x86_32.zip -d /tmp/gentoo/usr/local/ bin/protoc && \
-#     unzip -o protoc-21.12-linux-x86_32.zip -d /tmp/gentoo/usr/local/ 'include/*' && \
-#     ldconfig && \
-#     rm protoc-21.12-linux-x86_32.zip
-
-# # build latest onnxruntime version - for whatever reason only the v1.16.3 version can compile here
-# RUN cd .local && git clone --recursive https://github.com/Microsoft/onnxruntime.git && \
-#     cd onnxruntime && git checkout v1.16.3 && \ 
-#     ./build.sh --config Release --parallel --build_wheel --disable_ml_ops --update --build --build_shared_lib --cmake_extra_defines CMAKE_INSTALL_PREFIX=/tmp/gentoo/usr CMAKE_CXX_FLAGS="-mavx" CMAKE_SYSTEM_NAME=Linux CMAKE_SYSTEM_PROCESSOR=i686 ONNX_CUSTOM_PROTOC_EXECUTABLE=/tmp/gentoo/usr/local/bin/protoc && \
-#     cd build/Linux/Release/ && \
-#     make install && \
-#     cd dist && pip install *.whl
-
 # remove python3.12
 RUN emerge --unmerge python:3.12
 RUN emerge --depclean
 RUN rm -rf /tmp/gentoo/usr/bin/python3.12 /tmp/gentoo/usr/bin/python3.12-config
 
 #install onnxruntime from wheel
-ADD wheels/onnxruntime-1.16.3-cp311-cp311-linux_i686.whl /tmp/gentoo/onnxruntime-1.16.3-cp311-cp311-linux_i686.whl
-RUN pip install /tmp/gentoo/onnxruntime-1.16.3-cp311-cp311-linux_i686.whl && rm /tmp/gentoo/onnxruntime-1.16.3-cp311-cp311-linux_i686.whl
+ADD wheels/onnxruntime-1.15.1-cp311-cp311-linux_i686.whl /tmp/gentoo/onnxruntime-1.15.1-cp311-cp311-linux_i686.whl
+RUN pip install /tmp/gentoo/onnxruntime-1.15.1-cp311-cp311-linux_i686.whl && rm /tmp/gentoo/onnxruntime-1.15.1-cp311-cp311-linux_i686.whl
 
 RUN mkdir -p /home/nao/.local &&\
     cd /home/nao/.local &&\
@@ -114,14 +99,31 @@ RUN cd /home/nao/.local && \
     && python setup.py install
 
 RUN emerge sci-libs/orocos_kdl
+
+### THIS IS THE BUILD OF ONNXRUNTIME FROM SOURCE - NOT NEEDED ANYMORE
 # Need to compile pybind11 from source to fight the redefinition of PyFrameObject:
 # https://github.com/sirfz/tesserocr/issues/298
-RUN git clone https://github.com/pybind/pybind11.git -b v2.10.0 &&  cd pybind11 && \
+RUN cd ~/.local && git clone https://github.com/pybind/pybind11.git -b v2.10.0 &&  cd pybind11 && \
     mkdir build && \
     cd build && \
     cmake .. -DPYBIND11_PYTHON_VERSION=3.11 -DCMAKE_INSTALL_PREFIX=/tmp/gentoo/usr && \
     make -j12 && \
     make install
+
+# ONNX won't install protoc correctly by default so we do it beforehand
+# RUN cd ~/.local && wget https://github.com/protocolbuffers/protobuf/releases/download/v21.12/protoc-21.12-linux-x86_32.zip && \
+#     unzip -o protoc-21.12-linux-x86_32.zip -d /tmp/gentoo/usr/local/ bin/protoc && \
+#     unzip -o protoc-21.12-linux-x86_32.zip -d /tmp/gentoo/usr/local/ 'include/*' && \
+#     ldconfig && \
+#     rm protoc-21.12-linux-x86_32.zip
+
+# build latest onnxruntime version
+# RUN cd .local && git clone --recursive https://github.com/Microsoft/onnxruntime.git -b v1.15.1 && \
+#     cd onnxruntime && \ 
+#     ./build.sh --config Release --parallel --build_wheel --disable_ml_ops --update --build --x86 --cmake_extra_defines CMAKE_INSTALL_PREFIX=/tmp/gentoo/usr CMAKE_CXX_FLAGS="-lstdc++ -msse -msse4.1 -mfpmath=sse" CMAKE_SYSTEM_NAME=Linux CMAKE_SYSTEM_PROCESSOR=i686 ONNX_CUSTOM_PROTOC_EXECUTABLE=/tmp/gentoo/usr/local/bin/protoc && \
+#     cd build/Linux/Release/ && \
+#     make install && \
+#     cd dist && pip install *.whl
 
 #Download ROS2
 RUN mkdir -p ~/ros2_humble/src &&\
@@ -132,7 +134,6 @@ RUN mkdir -p ~/ros2_humble/src &&\
     cd src && git clone https://github.com/ptrmu/ros2_shared.git && cd .. &&\
     #Build ROS2
     colcon build --symlink-install; exit 0
-
 
 RUN cd ~/ros2_humble/ &&\
     #Building will fail due to the mimick package. While compiling mimick downloads and builds mimick_vendor. The CMakeList.txt of mimick_vendor doesn't take into account 32 bits architecture like Pepper and has to be adjusted accordingly.   
@@ -152,6 +153,20 @@ RUN . ~/ros2_humble/install/local_setup.bash &&\
     git clone https://github.com/ros/diagnostics && \
     cd .. && colcon build --symlink-install  --cmake-args -DBUILD_TESTING=OFF
 
+
+# RUN  cmake -DCMAKE_BUILD_TYPE=Release -DTREAT_WARNING_AS_ERROR=OFF -DENABLE_AVX512F=OFF -DBUILD_SHARED_LIBS=OFF -DENABLE_PYTHON=ON -DENABLE_INTEL_GNA=OFF -DENABLE_IR_V7_READER=OFF -DENABLE_GAPI_PREPROCESSING=OFF -DENABLE_ONEDNN_FOR_GPU=OFF -DENABLE_INTEL_GPU=OFF -DENABLE_OV_PADDLE_FRONTEND=OFF -DENABLE_OV_IR_FRONTEND=OFF -DENABLE_INTEL_CPU=OFF -DENABLE_WHEEL=ON -DENABLE_OV_TF_FRONTEND=OFF -DENABLE_TBB_RELEASE_ONLY=OFF -DENABLE_INTEL_MYRIAD=OFF -DTHREADING=SEQ -DENABLE_OV_ONNX_FRONTEND=OFF ..
+
+RUN BLIS_ARCH="generic" pip install transformers spacy
+# for wathever reason the wheel is not working
+# ADD wheels/spacy-3.7.4-cp311-cp311-linux_i686.whl /tmp/gentoo/spacy-3.7.4-cp311-cp311-linux_i686.whl
+# RUN pip install /tmp/gentoo/spacy-3.7.4-cp311-cp311-linux_i686.whl --no-binary blis && rm /tmp/gentoo/spacy-3.7.4-cp311-cp311-linux_i686.whl
+RUN python3.11 -m spacy download en_core_web_sm
+
+RUN emerge dev-vcs/git-lfs
+
+# for GStreamer
+RUN emerge media-libs/gstreamer media-libs/gst-plugins-base media-libs/gst-plugins-good media-plugins/gst-plugins-jpeg media-plugins/gst-plugins-v4l2
+
 # Build tensorflow lite - legacy, can be used for debuging purposes
 # RUN cd .local && git clone https://github.com/tensorflow/tensorflow.git tensorflow_src
 # RUN cd .local/tensorflow_src && \
@@ -162,10 +177,19 @@ RUN . ~/ros2_humble/install/local_setup.bash &&\
 ADD wheels/tflite_runtime-2.16.0-cp311-cp311-linux_i686.whl /tmp/gentoo/tflite_runtime-2.16.0-cp311-cp311-linux_i686.whl
 RUN pip install /tmp/gentoo/tflite_runtime-2.16.0-cp311-cp311-linux_i686.whl && rm /tmp/gentoo/tflite_runtime-2.16.0-cp311-cp311-linux_i686.whl
 
+# Takes care of initializing the shell correctly
+COPY --chown=nao:nao config/.bash_profile /home/nao/.bash_profile
+
+# copy the content of scripts to ~/.local/share/scripts
+COPY --chown=nao:nao scripts /home/nao/.local/share/scripts
+
 RUN ls  /home/nao/.local
-RUN rm -rf pybind11 && cd .local && rm -rf vosk-api libqi libqi-python qibuild
+RUN cd .local && rm -rf vosk-api libqi libqi-python qibuild pybind11
 # # # cleanup space first
 RUN rm -rf /tmp/gentoo/var/cache/binpkgs/* /tmp/gentoo/var/tmp/* /home/nao/.cache/* /home/nao/gentoo/var/cache/distfiles/*
+RUN cd / && rm -rf `find . -type d -name *.cache`
+RUN cd / && rm -rf `find . -type d -name __pycache__`
+
 # Hack to earn extra 500MB~
 SHELL ["/bin/sh", "-c"]
 USER root

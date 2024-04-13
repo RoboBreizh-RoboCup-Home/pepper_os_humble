@@ -33,28 +33,27 @@ RUN sed -i 's/EMERGE_DEFAULT_OPTS=.*//' $EPREFIX/etc/portage/make.conf &&\
     echo "EMERGE_DEFAULT_OPTS=\"--jobs $((`grep -c \^processor \/proc\/cpuinfo` / 2)) --load-average `grep -c \^processor \/proc\/cpuinfo`\"" >> $EPREFIX/etc/portage/make.conf
 
 # ONNX won't install protoc correctly by default so we do it beforehand
-# RUN cd ~/.local && wget https://github.com/protocolbuffers/protobuf/releases/download/v21.12/protoc-21.12-linux-x86_32.zip && \
-#     unzip -o protoc-21.12-linux-x86_32.zip -d /tmp/gentoo/usr/local/ bin/protoc && \
-#     unzip -o protoc-21.12-linux-x86_32.zip -d /tmp/gentoo/usr/local/ 'include/*' && \
-#     ldconfig && \
-#     rm protoc-21.12-linux-x86_32.zip
+RUN cd ~/.local && wget https://github.com/protocolbuffers/protobuf/releases/download/v21.12/protoc-21.12-linux-x86_32.zip && \
+    unzip -o protoc-21.12-linux-x86_32.zip -d /tmp/gentoo/usr/local/ bin/protoc && \
+    unzip -o protoc-21.12-linux-x86_32.zip -d /tmp/gentoo/usr/local/ 'include/*' && \
+    ldconfig && \
+    rm protoc-21.12-linux-x86_32.zip
 
-# # build latest onnxruntime version - for whatever reason only the v1.16.3 version can compile here
-# RUN cd .local && git clone --recursive https://github.com/Microsoft/onnxruntime.git && \
-#     cd onnxruntime && git checkout v1.16.3 && \ 
-#     ./build.sh --config Release --parallel --build_wheel --disable_ml_ops --update --build --build_shared_lib --cmake_extra_defines CMAKE_INSTALL_PREFIX=/tmp/gentoo/usr CMAKE_CXX_FLAGS="-mavx" CMAKE_SYSTEM_NAME=Linux CMAKE_SYSTEM_PROCESSOR=i686 ONNX_CUSTOM_PROTOC_EXECUTABLE=/tmp/gentoo/usr/local/bin/protoc && \
-#     cd build/Linux/Release/ && \
-#     make install && \
-#     cd dist && pip install *.whl
+# # build latest onnxruntime version
+RUN cd .local && git clone --recursive https://github.com/Microsoft/onnxruntime.git && \
+    cd onnxruntime && git checkout v1.16.3 && \ 
+    ./build.sh --config Release --parallel --build_wheel --disable_ml_ops --update --build --build_shared_lib --cmake_extra_defines CMAKE_INSTALL_PREFIX=/tmp/gentoo/usr CMAKE_CXX_FLAGS="-mavx" CMAKE_SYSTEM_NAME=Linux CMAKE_SYSTEM_PROCESSOR=i686 ONNX_CUSTOM_PROTOC_EXECUTABLE=/tmp/gentoo/usr/local/bin/protoc && \
+    cd build/Linux/Release/ && \
+    make install && \
+    cd dist && pip install *.whl
+
+# Above can be skipped if we use the wheel
+# RUN pip install /tmp/gentoo/onnxruntime-1.18.0-cp311-cp311-linux_i686.whl && rm /tmp/gentoo/onnxruntime-1.18.0-cp311-cp311-linux_i686.whl
 
 # remove python3.12
 RUN emerge --unmerge python:3.12
 RUN emerge --depclean
 RUN rm -rf /tmp/gentoo/usr/bin/python3.12 /tmp/gentoo/usr/bin/python3.12-config
-
-#install onnxruntime from wheel
-ADD wheels/onnxruntime-1.16.3-cp311-cp311-linux_i686.whl /tmp/gentoo/onnxruntime-1.16.3-cp311-cp311-linux_i686.whl
-RUN pip install /tmp/gentoo/onnxruntime-1.16.3-cp311-cp311-linux_i686.whl && rm /tmp/gentoo/onnxruntime-1.16.3-cp311-cp311-linux_i686.whl
 
 RUN mkdir -p /home/nao/.local &&\
     cd /home/nao/.local &&\

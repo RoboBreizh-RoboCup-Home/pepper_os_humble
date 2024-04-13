@@ -60,6 +60,13 @@ fi
 alias nao_driver="ros2 launch naoqi_driver naoqi_driver.launch.py nao_ip:=$ROS_IP network_interface:=$MACHINE_INTERFACE"
 alias pip='pip3'
 
+# commands Pepper
+alias wake="qicli call ALMotion.wakeUp"
+alias rest="qicli call ALMotion.rest"
+alias straight="sh ~/.local/share/scripts/set_my_pepper_straight.sh"
+alias vision_services="sh ~/.local/share/scripts/vision_services.sh"
+alias say="sh ~/.local/share/scripts/ALsay.sh"
+
 export PNP_LIBRARY=/home/nao/.local/bin/usr/local/lib/
 export ROS_PACKAGE_PATH=/home/nao/.local/rtabmap/build/bin/:$ROS_PACKAGE_PATH
 export LD_LIBRARY_PATH=/home/nao/.local/bin/libqi/lib:/home/nao/.local/bin/usr/local/lib/
