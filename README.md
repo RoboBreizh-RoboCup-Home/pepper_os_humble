@@ -136,3 +136,23 @@ $ rviz2 rviz
 ```
 
 To start rviz2 and display the topic of interest (Add -> By topic).
+
+## Citations
+
+If you use this project, please consider citing:
+
+```
+@incollection{buche2023robocup,
+  title={RoboCup@ Home SSPL Champion 2023: RoboBreizh, a Fully Embedded Approach},
+  author={Buche, C{\'e}dric and Neau, Ma{\"e}lic and Ung, Thomas and Li, Louis and Wang, Sinuo and Bono, C{\'e}dric Le},
+  booktitle={Robot World Cup},
+  pages={374--385},
+  year={2023},
+  publisher={Springer}
+}
+
+```
+
+## Acknowledgment
+
+This project is heavily inspired by the awesome work of [Sam Pfeiffer](https://github.com/awesomebytes) and is really nice CLI of a [gentoo prefix for Pepper](https://github.com/awesomebytes/ros_overlay_on_gentoo_prefix_32b).

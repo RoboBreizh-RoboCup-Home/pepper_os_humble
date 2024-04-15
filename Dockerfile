@@ -193,14 +193,17 @@ RUN cd / && rm -rf `find . -type d -name __pycache__`
 # Hack to earn extra 500MB~
 SHELL ["/bin/sh", "-c"]
 USER root
-# Remove all .git directories
-RUN find /home/nao -name ".git" -type d -exec rm -rf {} \; || true
+# Optional: remove all .git directories (no update possible after that)
+# RUN find /home/nao -name ".git" -type d -exec rm -rf {} \; || true
 RUN rm -rf /opt
 RUN du -sh /tmp/gentoo
 USER nao
 
 SHELL ["/tmp/gentoo/executeonprefix"]
 
-RUN cd /home/nao && tar -c --lzma -f /tmp/pepper_os.tar.lzma -C /home/nao gentoo -C  /home/nao ros2_humble -C /home/nao .local -C /home/nao .bash_profile -C /home/nao naoqi -C /home/nao catkin_ros2 || true
+# for faster compression in parallel with pxz
+RUN emerge app-arch/pxz app-arch/tar
+
+RUN cd /home/nao && tar -I pxz  -c -f ./pepper_os.tar.lzma -C /home/nao gentoo -C  /home/nao ros2_humble -C /home/nao .local -C /home/nao .bash_profile -C /home/nao naoqi -C /home/nao catkin_ros2 || true
 
 ENTRYPOINT ["/bin/bash"]
