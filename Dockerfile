@@ -145,7 +145,7 @@ RUN cd ~/ros2_humble/ &&\
 RUN . ~/ros2_humble/install/local_setup.bash &&\
     mkdir -p ~/catkin_ros2/src &&\
     cd ~/catkin_ros2/src/ &&\
-    git clone https://github.com/Maelic/naoqi_driver2.git -b patch-1 &&\
+    git clone https://github.com/Maelic/naoqi_driver2.git &&\
     git clone --branch humble https://github.com/ros-perception/vision_opencv &&\  
     git clone --branch release/humble/naoqi_libqi https://github.com/ros-naoqi/libqi-release &&\
     git clone --branch release/humble/naoqi_libqicore https://github.com/ros-naoqi/libqicore-release &&\             
@@ -183,16 +183,14 @@ COPY --chown=nao:nao config/.bash_profile /home/nao/.bash_profile
 # copy the content of scripts to ~/.local/share/scripts
 COPY --chown=nao:nao scripts /home/nao/.local/share/scripts
 
-RUN ls  /home/nao/.local
+# Hack to earn extra 500MB~
+SHELL ["/bin/sh", "-c"]
+USER root
 RUN cd .local && rm -rf vosk-api libqi libqi-python qibuild pybind11
 # # # cleanup space first
 RUN rm -rf /tmp/gentoo/var/cache/binpkgs/* /tmp/gentoo/var/tmp/* /home/nao/.cache/* /home/nao/gentoo/var/cache/distfiles/*
 RUN cd / && rm -rf `find . -type d -name *.cache`
 RUN cd / && rm -rf `find . -type d -name __pycache__`
-
-# Hack to earn extra 500MB~
-SHELL ["/bin/sh", "-c"]
-USER root
 # Optional: remove all .git directories (no update possible after that)
 # RUN find /home/nao -name ".git" -type d -exec rm -rf {} \; || true
 RUN rm -rf /opt
