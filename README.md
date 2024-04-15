@@ -28,7 +28,7 @@ For clarity and simplification, the documentation assumes that the variable is s
 
 ## Release 
 
-A plug-and-play environment is available at [https://drive.google.com/file/d/1Wj3Xqa_yEeaTU_f9gRh7vU64BUDX61hh/view?usp=sharing](https://drive.google.com/file/d/1Wj3Xqa_yEeaTU_f9gRh7vU64BUDX61hh/view?usp=sharing). From there go to [Installation on pepper](#installation-on-pepper) 
+A plug-and-play environment is available at [https://drive.google.com/file/d/1pW4Q36QXR29MyWEb5wtkeABo-9eMvh5G/view?usp=sharing](https://drive.google.com/file/d/1pW4Q36QXR29MyWEb5wtkeABo-9eMvh5G/view?usp=sharing) if you don't want to compile everything from scratch. From there go to [Installation on pepper](#installation-on-pepper).
 
 ## Build the environment
 
@@ -42,13 +42,13 @@ Here we are using a 32b version of gentoo prefix build in 11/2023 that is a snap
 
 ## Compress to lzma
 
-Compressing the environment to lzma is necessary as Pepper has limited resources. The entire environment is about ~8GB and will be reduced to about ~1.9GB. In comparison, Pepper has about 25GB of space available.
+Compressing the environment to lzma is necessary as Pepper has limited resources. The entire environment is about ~8GB and will be reduced to about ~2GB. In comparison, Pepper has about 25GB of space available.
 
 ```bash
 $ docker run -it pepper_os_humble:latest
 
 #Outside docker in another terminal
-$ docker cp CONTAINER_ID:/tmp/pepper_os.tar.lzma ./pepper_os_humble_32b.tar.lzma 
+$ docker cp CONTAINER_ID:/data/home/nao/pepper_os.tar.lzma ./pepper_os.tar.lzma
 ```
 
 CONTAINER_ID being the ID of the running container (nao@CONTAINER_ID)
@@ -70,7 +70,7 @@ Once there is enough space available, the archive can be copied and uncompressed
 ```bash
 $ scp pepper_os.tar.lzma nao@$PEPPER_IP:/home/nao/
 $ ssh nao@$PEPPER_IP
-$ tar --lzma -xvf ./pepper_os.tar.lzma
+$ tar -J -xvf ./pepper_os.tar.lzma
 $ rm pepper_os.tar.lzma
 ```
 
