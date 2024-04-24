@@ -177,6 +177,9 @@ RUN emerge media-libs/gstreamer media-libs/gst-plugins-base media-libs/gst-plugi
 ADD wheels/tflite_runtime-2.16.0-cp311-cp311-linux_i686.whl /tmp/gentoo/tflite_runtime-2.16.0-cp311-cp311-linux_i686.whl
 RUN pip install /tmp/gentoo/tflite_runtime-2.16.0-cp311-cp311-linux_i686.whl && rm /tmp/gentoo/tflite_runtime-2.16.0-cp311-cp311-linux_i686.whl
 
+# git config to avoid ssl verification for the clock of Pepper which is not up to date (2014)
+RUN git config --global http.sslVerify false
+
 # Takes care of initializing the shell correctly
 COPY --chown=nao:nao config/.bash_profile /home/nao/.bash_profile
 
