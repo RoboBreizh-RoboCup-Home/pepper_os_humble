@@ -68,28 +68,28 @@ RUN pip install ~/onnxruntime-1.16.0-cp310-cp310-linux_x86_64.whl && \
 
 # LibQi python from source, not necessary because we have the wheel now
 # Install of libqi Python3.8 bindings:
-# RUN mkdir -p /home/nao/.local &&\
-#     cd /home/nao/.local &&\
-#     git clone https://github.com/aldebaran/qibuild.git && \
-#     cd qibuild && \
-#     python3.10 -m pip install -e . 
+RUN mkdir -p /home/nao/.local &&\
+    cd /home/nao/.local &&\
+    git clone https://github.com/aldebaran/qibuild.git && \
+    cd qibuild && \
+    python3.10 -m pip install -e . 
 
-# RUN mkdir -p /home/nao/.local &&\
-#     cd /home/nao/.local &&\
-#     git clone https://github.com/aldebaran/libqi.git && \
-#     cd libqi && \
-#     mkdir build && cd build && \
-#     cmake .. -DQI_WITH_TESTS=OFF -DCMAKE_PREFIX_PATH=/home/nao/.local/qibuild/cmake/qibuild -DCMAKE_INSTALL_PREFIX=/tmp/gentoo/usr -DWITH_BOOST_LOCALE=TRUE && \
-#     make -j12 && \
-#     make install 
+RUN mkdir -p /home/nao/.local &&\
+    cd /home/nao/.local &&\
+    git clone https://github.com/aldebaran/libqi.git && \
+    cd libqi && \
+    mkdir build && cd build && \
+    cmake .. -DQI_WITH_TESTS=OFF -DCMAKE_PREFIX_PATH=/home/nao/.local/qibuild/cmake/qibuild -DCMAKE_INSTALL_PREFIX=/tmp/gentoo/usr -DWITH_BOOST_LOCALE=TRUE && \
+    make -j12 && \
+    make install 
 
-# RUN mkdir -p /home/nao/.local &&\
-#     cd /home/nao/.local &&\
-#     git clone https://github.com/Maelic/libqi-python.git && cd libqi-python && \
-#     mkdir build && cd build && \
-#     cmake .. -DQI_WITH_TESTS=OFF -Dqi_DIR=/home/nao/.local/libqi/build/sdk/cmake -Dqibuild_DIR=/home/nao/.local/qibuild/cmake/qibuild -DCMAKE_INSTALL_PREFIX=/home/nao/.local/bin/libqi_python && \
-#     cmake --build . --verbose && \x
-#     cmake --install .
+RUN mkdir -p /home/nao/.local &&\
+    cd /home/nao/.local &&\
+    git clone https://github.com/Maelic/libqi-python.git && cd libqi-python && \
+    mkdir build && cd build && \
+    cmake .. -DQI_WITH_TESTS=OFF -Dqi_DIR=/home/nao/.local/libqi/build/sdk/cmake -Dqibuild_DIR=/home/nao/.local/qibuild/cmake/qibuild -DCMAKE_INSTALL_PREFIX=/home/nao/.local/bin/libqi_python && \
+    cmake --build . --verbose && \
+    cmake --install .
 
 ADD --chown=nao:nao wheels/qi-3.1.1-cp310-cp310-linux_x86_64.whl qi-3.1.1-cp310-cp310-linux_x86_64.whl
 RUN pip install ~/qi-3.1.1-cp310-cp310-linux_x86_64.whl && \

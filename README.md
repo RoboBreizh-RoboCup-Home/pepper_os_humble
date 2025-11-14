@@ -32,7 +32,7 @@ A plug-and-play environment is available here [here](https://mycore.core-cloud.n
 
 ## Build the environment
 
-The environment can be built using the Dockerfile.base_build and Dockerfile. You can build the first Dockerfile that contains basic requirement and OS settings for the gentoo prefix using the following commands:
+The environment can be built using the Dockerfile.base_build and Dockerfile. You can build the first Dockerfile that contains basic requirements and OS settings for the gentoo prefix using the following commands:
 
 ```bash
 $ docker run --cpus 12 --entrypoint /tmp/gentoo/executeonprefix  awesomebytes/gentoo_prefix_boostrapped "tar -c --lzma -f - -C /tmp gentoo" > ./gentoo_on_tmp.tar.lzma
